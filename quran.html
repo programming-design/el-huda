@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القرآن الكريم | El Huda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body data-lang="ar">
+<canvas id="bg3d"></canvas>
+<div class="pattern"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <div class="mark">☾</div>
+    <div>
+      <h1 data-i18n="brand">الهُدى</h1>
+      <small data-i18n="brand_sub">EL HUDA</small>
+    </div>
+  </a>
+  <nav class="links" id="navLinks">
+    <a href="index.html" data-i18n="nav_home" class="">الرئيسية</a>
+    <a href="quran.html" data-i18n="nav_quran" class="current">القرآن</a>
+    <a href="prayer.html" data-i18n="nav_prayer" class="">الصلاة</a>
+    <a href="hadiths.html" data-i18n="nav_hadiths" class="">أحاديث</a>
+    <a href="duas-dhikr.html" data-i18n="nav_duas" class="">أدعية وأذكار</a>
+    <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
+    <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
+    <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
+  </nav>
+  <div style="display:flex; align-items:center; gap:14px;">
+    <div class="lang-switch">
+      <button data-lang-btn="ar" class="active">AR</button>
+      <button data-lang-btn="fr">FR</button>
+      <button data-lang-btn="en">EN</button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
+  </div>
+</header>
+<section class="page-hero">
+  <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
+  <h2 data-i18n="quran_title">القرآن الكريم</h2>
+  <p class="lead" data-i18n="quran_lead">وسائل بسيطة وعصرية للتقرب من كتاب الله، بثلاث لغات.</p>
+</section>
+
+<section class="reveal">
+  <div class="grid">
+    <div class="card reveal-scale in">
+      <div class="icon">📖</div>
+      <h4 data-i18n="quran_card1_h">تصفح المصحف</h4>
+      <p data-i18n="quran_card1_p">اقرأ القرآن الكريم كاملاً بخط واضح وتصميم مريح للعين.</p>
+    </div>
+    <div class="card reveal-scale in">
+      <div class="icon">🎧</div>
+      <h4 data-i18n="quran_card2_h">الاستماع للتلاوات</h4>
+      <p data-i18n="quran_card2_p">استمع إلى تلاوات هادئة بأصوات أشهر القراء.</p>
+    </div>
+    <div class="card reveal-scale in">
+      <div class="icon">📝</div>
+      <h4 data-i18n="quran_card3_h">التفسير الميسر</h4>
+      <p data-i18n="quran_card3_p">شرح مبسّط للآيات من أوثق كتب التفسير.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ayah-block reveal">
+  <p class="quote" data-i18n="ayah_quote">«وَقُل رَّبِّ زِدْنِي عِلْمًا»</p>
+  <p class="ref" data-i18n="ayah_ref">سورة طه - الآية 114</p>
+</div>
+<footer>
+  <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
+  <div class="daily-quote" id="daily-quote"></div>
+  <div class="brand-line">الهُدى · El Huda</div>
+  <p data-i18n="footer_quote">«وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ»</p>
+  <p style="margin-top:10px;" data-i18n="footer_rights">© 2026 الهُدى. جميع الحقوق محفوظة.</p>
+</footer>
+<script src="lang.js"></script>
+<script src="content.js"></script>
+<script src="render.js"></script>
+<script src="effects.js" defer></script>
+</body>
+</html>

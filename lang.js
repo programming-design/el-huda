@@ -1,0 +1,370 @@
+const translations = {
+  ar: {
+
+    nav_hadiths:"أحاديث", nav_duas:"أدعية وأذكار", nav_stories:"قصص الأنبياء",
+    home_hadiths_h:"أحاديث", home_hadiths_p:"أحاديث نبوية مختارة للتدبر والعمل.",
+    home_duas_h:"أدعية وأذكار", home_duas_p:"أذكار وأدعية يومية من السنة.",
+    home_stories_h:"قصص الأنبياء", home_stories_p:"عبر ودروس من قصص الأنبياء.",
+
+    daily_label:"خاطرة اليوم",
+
+    quran_select_label:"اختر السورة:",
+    quran_loading:"جاري التحميل...",
+    quran_translation_label:"الترجمة",
+    quran_tafsir_label:"التفسير الميسر",
+    quran_show_tafsir:"إظهار/إخفاء التفسير",
+    quran_play:"تشغيل الآية",
+
+    prayer_locating:"جاري تحديد موقعك...",
+    prayer_location_label:"موقعك",
+    prayer_allow:"يرجى السماح بالوصول للموقع لعرض المواقيت بدقة",
+    prayer_next:"الصلاة القادمة",
+    prayer_default_note:"يتم عرض مواقيت مكة المكرمة افتراضيًا حتى تسمح بتحديد موقعك.",
+
+    art4_h:"الإقلاع عن الإدمان", art4_p:"دعم وإرشادات للتعافي بعون الله من العادات الضارة.",
+    addictions_title:"الإقلاع عن الإدمان",
+    addictions_b1:"الإدمان بكل أنواعه ابتلاء يمكن التعافي منه بالصبر والدعاء والاستعانة بالله، مع اتخاذ خطوات عملية وطلب الدعم من المختصين والأقران.",
+    addictions_h1:"خطوات عملية",
+    addictions_b2:"حدد دافعك، تجنب أماكن ومحفزات الإدمان، استبدل العادة بنشاط مفيد، واطلب الدعم من أهلك أو مجتمع موثوق.",
+    addictions_h2:"الجانب الإيماني",
+    addictions_b3:"الإكثار من ذكر الله، والمحافظة على الصلاة، والدعاء بصدق، يقوّي القلب ويُعين على الصبر والثبات.",
+    addictions_h3:"لا تيأس",
+    addictions_b4:"النكسة ليست نهاية الطريق، فباب التوبة مفتوح دائمًا، وكل خطوة للأمام محسوبة عند الله.",
+
+    hadiths_title:"أحاديث نبوية شريفة",
+    hadiths_lead:"مجموعة من الأحاديث الصحيحة للتدبر والعمل بها في حياتنا اليومية.",
+
+    duasdhikr_title:"أدعية وأذكار",
+    duasdhikr_lead:"أذكار وأدعية يومية من السنة النبوية لطمأنة القلب وحفظ اللسان.",
+    dhikr_section_h:"أذكار",
+    duas_section_h:"أدعية",
+
+    stories_title:"قصص الأنبياء",
+    stories_lead:"عبر ودروس من قصص الأنبياء عليهم السلام.",
+    brand:"الهُدى", brand_sub:"EL HUDA",
+    nav_home:"الرئيسية", nav_quran:"القرآن", nav_prayer:"الصلاة", nav_articles:"مقالات", nav_about:"من نحن",
+
+    hero_eyebrow:"منصة إسلامية رقمية · 2026",
+    hero_title:'نور <span>القرآن</span> ودليلك إلى الهدى',
+    hero_lead:"اكتشف القرآن الكريم، مواقيت الصلاة، ومقالات إسلامية موثوقة — في تجربة عصرية، هادئة، وبثلاث لغات.",
+    cta_primary:"ابدأ القراءة", cta_ghost:"مواقيت الصلاة",
+
+    home_q_h:"القرآن الكريم", home_q_p:"تصفح، استمع، وتدبّر في تصميم هادئ ومريح.",
+    home_p_h:"مواقيت الصلاة", home_p_p:"تابع أوقات الصلوات الخمس بسهولة.",
+    home_a_h:"مقالات", home_a_p:"محتوى مختصر لتغذية القلب والعقل يوميًا.",
+    home_about_h:"من نحن", home_about_p:"تعرّف على رسالة الهُدى وأهدافها.",
+    more:"اقرأ المزيد ←",
+
+    ayah_quote:"«وَقُل رَّبِّ زِدْنِي عِلْمًا»", ayah_ref:"سورة طه - الآية 114",
+
+    quran_title:"القرآن الكريم",
+    quran_lead:"وسائل بسيطة وعصرية للتقرب من كتاب الله، بثلاث لغات.",
+    quran_card1_h:"تصفح المصحف", quran_card1_p:"اقرأ القرآن الكريم كاملاً بخط واضح وتصميم مريح للعين.",
+    quran_card2_h:"الاستماع للتلاوات", quran_card2_p:"استمع إلى تلاوات هادئة بأصوات أشهر القراء.",
+    quran_card3_h:"التفسير الميسر", quran_card3_p:"شرح مبسّط للآيات من أوثق كتب التفسير.",
+
+    prayer_title:"مواقيت الصلاة",
+    prayer_lead:"أوقات تقريبية، اضبطها حسب موقعك الجغرافي.",
+    p_fajr:"الفجر", p_sunrise:"الشروق", p_dhuhr:"الظهر", p_asr:"العصر", p_maghrib:"المغرب", p_isha:"العشاء",
+    prayer_note:"* المواقيت تقريبية ويُفضل ضبطها حسب موقعك.",
+
+    articles_title:"مقالات ومواضيع",
+    articles_lead:"محتوى مختصر لتغذية القلب والعقل يوميًا.",
+    art1_h:"فضل قيام الليل", art1_p:"تعرف على أجر وثواب قيام الليل وكيفية أدائه بسهولة.",
+    art2_h:"أدعية يومية", art2_p:"مجموعة من الأدعية المستحبة لكل وقت ومناسبة.",
+    art3_h:"السيرة النبوية", art3_p:"قصص وأحداث من حياة النبي محمد ﷺ تلهم وتُعلّم.",
+
+    back_articles:"← عودة إلى المقالات",
+
+    qiyam_title:"فضل قيام الليل",
+    qiyam_b1:"قيام الليل من أعظم العبادات التي يتقرب بها المسلم إلى ربه، فهو وقت السكون والهدوء حيث تُرفع الأعمال وتُستجاب الدعوات.",
+    qiyam_h1:"فضله",
+    qiyam_b2:"وردت أحاديث كثيرة تبيّن فضل قيام الليل، ومنها أنه سبب لمحبة الله للعبد، وأنه من أفضل القربات بعد الفرائض.",
+    qiyam_h2:"كيفية أدائه",
+    qiyam_b3:"يبدأ قيام الليل بعد صلاة العشاء، ويمكن أداؤه بركعتين أو أكثر، مع الإطالة في القراءة والدعاء والتدبر.",
+    qiyam_b4:"ينبغي الإكثار من الاستغفار والدعاء في هذا الوقت المبارك، فهو من أوقات استجابة الدعاء.",
+
+    duas_title:"أدعية يومية",
+    duas_b1:"الدعاء عبادة يومية يقرّب العبد من ربه في كل أوقاته، صباحًا ومساءً وفي كل حال.",
+    duas_h1:"دعاء الصباح",
+    duas_b2:"اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك المصير.",
+    duas_h2:"دعاء قبل النوم",
+    duas_b3:"باسمك ربي وضعت جنبي وبك أرفعه، فإن أمسكت نفسي فارحمها، وإن أرسلتها فاحفظها بما تحفظ به عبادك الصالحين.",
+    duas_h3:"دعاء طلب العلم",
+    duas_b4:"رب زدني علمًا، وارزقني فهمًا، واجعل ما علمتني حجة لي لا عليّ.",
+
+    sirah_title:"السيرة النبوية",
+    sirah_b1:"السيرة النبوية هي سجل حياة النبي محمد ﷺ منذ مولده إلى وفاته، وهي مصدر إلهام وهداية للمسلمين في كل زمان ومكان.",
+    sirah_h1:"المولد والنشأة",
+    sirah_b2:"وُلد النبي محمد ﷺ في مكة، ونشأ يتيمًا، وعُرف بين قومه بالصدق والأمانة قبل البعثة.",
+    sirah_h2:"الرسالة والدعوة",
+    sirah_b3:"بدأت الرسالة بنزول الوحي في غار حراء، فدعا الناس إلى توحيد الله بالحكمة والصبر على الأذى.",
+    sirah_h3:"دروس مستفادة",
+    sirah_b4:"تحمل السيرة النبوية دروسًا في الصبر، والرحمة، والعدل، والحكمة في التعامل مع الناس، تصلح لكل زمان.",
+
+    about_title:"من نحن",
+    about_p1:'"الهُدى" منصة إسلامية تهدف إلى تقديم محتوى موثوق من القرآن الكريم والسنة النبوية، بتصميم عصري وبسيط، لمساعدة الزوار على التعلم والتقرب إلى الله عز وجل، بلغتهم المفضلة.',
+    about_h1:"رسالتنا",
+    about_p2:"نسعى لتقديم محتوى إسلامي واضح وسهل الوصول، يخدم المسلمين في كل مكان، بثلاث لغات: العربية، الفرنسية، والإنجليزية.",
+    about_h2:"قيمنا",
+    about_p3:"الدقة في المصادر، البساطة في التصميم، والاحترام لكل زائر بغض النظر عن لغته أو خلفيته.",
+
+    footer_quote:"«وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ»", footer_rights:"© 2026 الهُدى. جميع الحقوق محفوظة."
+  },
+
+  en: {
+
+    nav_hadiths:"Hadiths", nav_duas:"Duas & Dhikr", nav_stories:"Prophets' Stories",
+    home_hadiths_h:"Hadiths", home_hadiths_p:"Selected prophetic hadiths to reflect on and apply.",
+    home_duas_h:"Duas & Dhikr", home_duas_p:"Daily remembrances and supplications from the Sunnah.",
+    home_stories_h:"Prophets' Stories", home_stories_p:"Lessons from the stories of the Prophets.",
+
+    daily_label:"Today's Reflection",
+
+    quran_select_label:"Select Surah:",
+    quran_loading:"Loading...",
+    quran_translation_label:"Translation",
+    quran_tafsir_label:"Simplified Tafsir",
+    quran_show_tafsir:"Show/Hide Tafsir",
+    quran_play:"Play verse",
+
+    prayer_locating:"Locating you...",
+    prayer_location_label:"Your location",
+    prayer_allow:"Please allow location access for accurate prayer times",
+    prayer_next:"Next prayer",
+    prayer_default_note:"Showing Makkah times by default until you allow location access.",
+
+    art4_h:"Overcoming Addiction", art4_p:"Support and guidance for recovering from harmful habits, with Allah's help.",
+    addictions_title:"Overcoming Addiction",
+    addictions_b1:"Addiction of any kind is a trial that can be overcome with patience, prayer, and reliance on Allah, alongside practical steps and support from professionals and peers.",
+    addictions_h1:"Practical steps",
+    addictions_b2:"Identify your motivation, avoid triggers and places associated with the habit, replace it with a beneficial activity, and seek support from family or a trusted community.",
+    addictions_h2:"The faith dimension",
+    addictions_b3:"Frequent remembrance of Allah, maintaining the prayers, and sincere supplication strengthen the heart and help with patience and steadfastness.",
+    addictions_h3:"Don't despair",
+    addictions_b4:"A relapse is not the end of the road — the door of repentance is always open, and every step forward counts with Allah.",
+
+    hadiths_title:"Noble Hadiths",
+    hadiths_lead:"A collection of authentic hadiths to reflect on and apply in daily life.",
+
+    duasdhikr_title:"Duas & Dhikr",
+    duasdhikr_lead:"Daily remembrances and supplications from the Sunnah to comfort the heart and guard the tongue.",
+    dhikr_section_h:"Dhikr",
+    duas_section_h:"Duas",
+
+    stories_title:"Stories of the Prophets",
+    stories_lead:"Lessons and reflections from the stories of the Prophets, peace be upon them.",
+    brand:"El Huda", brand_sub:"GUIDANCE & LIGHT",
+    nav_home:"Home", nav_quran:"Quran", nav_prayer:"Prayer", nav_articles:"Articles", nav_about:"About",
+
+    hero_eyebrow:"A digital islamic platform · 2026",
+    hero_title:'The light of the <span>Quran</span>, your path to guidance',
+    hero_lead:"Explore the Holy Quran, prayer times, and trusted islamic articles — in a calm, modern experience, in three languages.",
+    cta_primary:"Start reading", cta_ghost:"Prayer times",
+
+    home_q_h:"The Holy Quran", home_q_p:"Read, listen, and reflect in a calm, comfortable design.",
+    home_p_h:"Prayer Times", home_p_p:"Follow the five daily prayer times with ease.",
+    home_a_h:"Articles", home_a_p:"Short content to nourish the heart and mind every day.",
+    home_about_h:"About Us", home_about_p:"Learn about El Huda's mission and goals.",
+    more:"Read more →",
+
+    ayah_quote:"\u201CAnd say: My Lord, increase me in knowledge\u201D", ayah_ref:"Surah Ta-Ha - Verse 114",
+
+    quran_title:"The Holy Quran",
+    quran_lead:"Simple, modern ways to connect with the book of Allah, in three languages.",
+    quran_card1_h:"Read the Quran", quran_card1_p:"Read the full Quran in a clear, comfortable typeface.",
+    quran_card2_h:"Listen to recitations", quran_card2_p:"Listen to calm recitations by renowned reciters.",
+    quran_card3_h:"Simplified Tafsir", quran_card3_p:"Easy explanations of verses from trusted commentaries.",
+
+    prayer_title:"Prayer Times",
+    prayer_lead:"Approximate times — adjust to your location.",
+    p_fajr:"Fajr", p_sunrise:"Sunrise", p_dhuhr:"Dhuhr", p_asr:"Asr", p_maghrib:"Maghrib", p_isha:"Isha",
+    prayer_note:"* Times are approximate, please adjust to your location.",
+
+    articles_title:"Articles & Topics",
+    articles_lead:"Short content to nourish the heart and mind every day.",
+    art1_h:"The virtue of night prayer", art1_p:"Learn about the reward of night prayer and how to perform it.",
+    art2_h:"Daily duas", art2_p:"A collection of recommended duas for every time and occasion.",
+    art3_h:"The Prophet's biography", art3_p:"Stories and events from the life of Prophet Muhammad ﷺ.",
+
+    back_articles:"← Back to articles",
+
+    qiyam_title:"The Virtue of Night Prayer",
+    qiyam_b1:"Night prayer (Qiyam al-Layl) is one of the greatest acts of worship through which a Muslim draws closer to Allah, a time of calm when deeds rise and prayers are answered.",
+    qiyam_h1:"Its virtue",
+    qiyam_b2:"Many hadiths describe the virtue of night prayer, including that it is a cause for Allah's love for His servant, and one of the best acts of worship after the obligatory prayers.",
+    qiyam_h2:"How to perform it",
+    qiyam_b3:"Night prayer begins after Isha prayer, and can be performed with two or more units (rak'ahs), with extended recitation, supplication, and reflection.",
+    qiyam_b4:"One should increase in seeking forgiveness and supplication during this blessed time, as it is among the times when prayers are answered.",
+
+    duas_title:"Daily Duas",
+    duas_b1:"Dua is a daily act of worship that brings a servant closer to Allah at all times, morning, evening, and in every situation.",
+    duas_h1:"Morning dua",
+    duas_b2:"O Allah, by Your leave we have entered the morning and by Your leave we entered the evening, by Your leave we live and die, and unto You is our return.",
+    duas_h2:"Dua before sleeping",
+    duas_b3:"In Your name, my Lord, I lie down, and in Your name I rise. If You take my soul, have mercy on it, and if You release it, protect it as You protect Your righteous servants.",
+    duas_h3:"Dua for seeking knowledge",
+    duas_b4:"My Lord, increase me in knowledge, grant me understanding, and make what You have taught me an argument in my favor, not against me.",
+
+    sirah_title:"The Prophet's Biography",
+    sirah_b1:"The Prophet's biography (Sirah) is the record of the life of Prophet Muhammad ﷺ from his birth to his passing, a source of inspiration and guidance for Muslims everywhere.",
+    sirah_h1:"Birth and upbringing",
+    sirah_b2:"Prophet Muhammad ﷺ was born in Makkah, grew up as an orphan, and was known among his people for his honesty and trustworthiness before his mission began.",
+    sirah_h2:"The message and the call",
+    sirah_b3:"The message began with the revelation in the cave of Hira, after which he called people to the oneness of Allah with wisdom and patience through hardship.",
+    sirah_h3:"Lessons learned",
+    sirah_b4:"The Prophet's biography carries lessons in patience, mercy, justice, and wisdom in dealing with people, lessons relevant for every age.",
+
+    about_title:"About Us",
+    about_p1:'"El Huda" is an islamic platform offering trusted content from the Quran and Sunnah, with a modern, simple design, helping visitors learn and grow closer to Allah, in their preferred language.',
+    about_h1:"Our Mission",
+    about_p2:"We aim to provide clear, accessible islamic content that serves Muslims everywhere, in three languages: Arabic, French, and English.",
+    about_h2:"Our Values",
+    about_p3:"Accuracy in sources, simplicity in design, and respect for every visitor regardless of their language or background.",
+
+    footer_quote:"\u201CAnd cooperate in righteousness and piety\u201D", footer_rights:"© 2026 El Huda. All rights reserved."
+  },
+
+  fr: {
+
+    nav_hadiths:"Hadiths", nav_duas:"Invocations & Dhikr", nav_stories:"Histoires des Prophètes",
+    home_hadiths_h:"Hadiths", home_hadiths_p:"Hadiths prophétiques choisis pour méditer et appliquer.",
+    home_duas_h:"Invocations & Dhikr", home_duas_p:"Rappels et invocations quotidiennes de la Sunna.",
+    home_stories_h:"Histoires des Prophètes", home_stories_p:"Leçons tirées des histoires des Prophètes.",
+
+    daily_label:"Réflexion du jour",
+
+    quran_select_label:"Choisir une sourate :",
+    quran_loading:"Chargement...",
+    quran_translation_label:"Traduction",
+    quran_tafsir_label:"Tafsir simplifié",
+    quran_show_tafsir:"Afficher/Masquer le Tafsir",
+    quran_play:"Lire le verset",
+
+    prayer_locating:"Localisation en cours...",
+    prayer_location_label:"Votre position",
+    prayer_allow:"Veuillez autoriser la localisation pour des horaires précis",
+    prayer_next:"Prochaine prière",
+    prayer_default_note:"Horaires de La Mecque affichés par défaut tant que la localisation n'est pas autorisée.",
+
+    art4_h:"Surmonter une addiction", art4_p:"Soutien et conseils pour se rétablir d'habitudes nuisibles, avec l'aide d'Allah.",
+    addictions_title:"Surmonter une addiction",
+    addictions_b1:"L'addiction, quelle qu'elle soit, est une épreuve dont on peut se rétablir avec patience, invocation et confiance en Allah, en plus d'étapes concrètes et du soutien de professionnels ou de pairs.",
+    addictions_h1:"Étapes concrètes",
+    addictions_b2:"Identifiez votre motivation, évitez les déclencheurs et lieux associés, remplacez l'habitude par une activité bénéfique, et cherchez le soutien de votre famille ou d'une communauté de confiance.",
+    addictions_h2:"La dimension spirituelle",
+    addictions_b3:"Multiplier le rappel d'Allah, maintenir les prières, et invoquer sincèrement renforcent le cœur et aident à la patience et à la persévérance.",
+    addictions_h3:"Ne désespérez pas",
+    addictions_b4:"Une rechute n'est pas la fin du chemin — la porte du repentir est toujours ouverte, et chaque pas en avant compte auprès d'Allah.",
+
+    hadiths_title:"Hadiths Nobles",
+    hadiths_lead:"Une collection de hadiths authentiques à méditer et appliquer au quotidien.",
+
+    duasdhikr_title:"Invocations & Dhikr",
+    duasdhikr_lead:"Rappels et invocations quotidiennes issus de la Sunna pour apaiser le cœur et préserver la langue.",
+    dhikr_section_h:"Dhikr",
+    duas_section_h:"Invocations",
+
+    stories_title:"Histoires des Prophètes",
+    stories_lead:"Leçons et réflexions tirées des histoires des Prophètes, paix sur eux.",
+    brand:"El Huda", brand_sub:"GUIDANCE & LUMIÈRE",
+    nav_home:"Accueil", nav_quran:"Coran", nav_prayer:"Prière", nav_articles:"Articles", nav_about:"À propos",
+
+    hero_eyebrow:"Plateforme islamique digitale · 2026",
+    hero_title:'La lumière du <span>Coran</span>, votre chemin vers la guidance',
+    hero_lead:"Découvrez le Saint Coran, les horaires de prière et des articles islamiques fiables — dans une expérience moderne et apaisante, en trois langues.",
+    cta_primary:"Commencer la lecture", cta_ghost:"Horaires de prière",
+
+    home_q_h:"Le Saint Coran", home_q_p:"Lisez, écoutez et méditez dans un design apaisant.",
+    home_p_h:"Horaires de prière", home_p_p:"Suivez facilement les cinq prières quotidiennes.",
+    home_a_h:"Articles", home_a_p:"Des contenus courts pour nourrir le cœur et l'esprit chaque jour.",
+    home_about_h:"À propos", home_about_p:"Découvrez la mission et les objectifs d'El Huda.",
+    more:"Lire la suite →",
+
+    ayah_quote:"« Et dis : Ô mon Seigneur, accroît mes connaissances »", ayah_ref:"Sourate Ta-Ha - Verset 114",
+
+    quran_title:"Le Saint Coran",
+    quran_lead:"Des moyens simples et modernes de se rapprocher du Livre d'Allah, en trois langues.",
+    quran_card1_h:"Lire le Coran", quran_card1_p:"Lisez le Coran complet avec une police claire et confortable.",
+    quran_card2_h:"Écouter les récitations", quran_card2_p:"Écoutez des récitations apaisantes par de célèbres récitateurs.",
+    quran_card3_h:"Tafsir simplifié", quran_card3_p:"Explications simplifiées des versets issues de commentaires fiables.",
+
+    prayer_title:"Horaires de prière",
+    prayer_lead:"Horaires approximatifs, à ajuster selon votre position.",
+    p_fajr:"Fajr", p_sunrise:"Lever du soleil", p_dhuhr:"Dhuhr", p_asr:"Asr", p_maghrib:"Maghrib", p_isha:"Isha",
+    prayer_note:"* Les horaires sont approximatifs, ajustez-les selon votre position.",
+
+    articles_title:"Articles & sujets",
+    articles_lead:"Des contenus courts pour nourrir le cœur et l'esprit chaque jour.",
+    art1_h:"Le mérite de la prière nocturne", art1_p:"Découvrez la récompense de la prière de nuit et comment l'accomplir.",
+    art2_h:"Invocations quotidiennes", art2_p:"Une collection d'invocations recommandées pour chaque moment.",
+    art3_h:"La biographie du Prophète", art3_p:"Récits et événements de la vie du Prophète Muhammad ﷺ.",
+
+    back_articles:"← Retour aux articles",
+
+    qiyam_title:"Le mérite de la prière nocturne",
+    qiyam_b1:"La prière de nuit (Qiyam al-Layl) est l'un des actes d'adoration les plus précieux par lequel le musulman se rapproche d'Allah, un moment de calme où les œuvres s'élèvent et les invocations sont exaucées.",
+    qiyam_h1:"Son mérite",
+    qiyam_b2:"De nombreux hadiths décrivent le mérite de la prière nocturne, notamment qu'elle attire l'amour d'Allah pour son serviteur et qu'elle est l'un des meilleurs actes après les prières obligatoires.",
+    qiyam_h2:"Comment l'accomplir",
+    qiyam_b3:"La prière de nuit commence après la prière d'Isha et peut être accomplie en deux unités (rak'ah) ou plus, avec une récitation, des invocations et une méditation prolongées.",
+    qiyam_b4:"Il convient de multiplier les demandes de pardon et les invocations durant ce moment béni, car c'est l'un des moments où les prières sont exaucées.",
+
+    duas_title:"Invocations quotidiennes",
+    duas_b1:"L'invocation (dua) est un acte d'adoration quotidien qui rapproche le serviteur d'Allah à tout moment, le matin, le soir et en toute situation.",
+    duas_h1:"Invocation du matin",
+    duas_b2:"Ô Allah, par Toi nous entrons dans le matin et par Toi nous entrons dans le soir, par Toi nous vivons et mourons, et vers Toi est le retour.",
+    duas_h2:"Invocation avant de dormir",
+    duas_b3:"En Ton nom, Seigneur, je me couche, et en Ton nom je me relève. Si Tu retiens mon âme, aie pitié d'elle, et si Tu la libères, protège-la comme Tu protèges Tes serviteurs vertueux.",
+    duas_h3:"Invocation pour la recherche du savoir",
+    duas_b4:"Seigneur, augmente mes connaissances, accorde-moi la compréhension, et fais de ce que Tu m'as enseigné un argument en ma faveur, et non contre moi.",
+
+    sirah_title:"La biographie du Prophète",
+    sirah_b1:"La biographie du Prophète (Sirah) retrace la vie du Prophète Muhammad ﷺ depuis sa naissance jusqu'à sa mort, une source d'inspiration et de guidance pour les musulmans partout.",
+    sirah_h1:"Naissance et jeunesse",
+    sirah_b2:"Le Prophète Muhammad ﷺ est né à La Mecque, a grandi orphelin, et était connu parmi son peuple pour son honnêteté et sa fiabilité avant sa mission.",
+    sirah_h2:"Le message et l'appel",
+    sirah_b3:"Le message a commencé avec la révélation dans la grotte de Hira, après quoi il a appelé les gens à l'unicité d'Allah avec sagesse et patience face aux épreuves.",
+    sirah_h3:"Leçons à retenir",
+    sirah_b4:"La biographie du Prophète porte des leçons de patience, de miséricorde, de justice et de sagesse dans les relations humaines, pertinentes pour toute époque.",
+
+    about_title:"À propos",
+    about_p1:"« El Huda » est une plateforme islamique proposant un contenu fiable issu du Coran et de la Sunna, avec un design moderne et simple, pour aider les visiteurs à apprendre et à se rapprocher d'Allah, dans la langue de leur choix.",
+    about_h1:"Notre mission",
+    about_p2:"Nous visons à offrir un contenu islamique clair et accessible, au service des musulmans partout, en trois langues : arabe, français et anglais.",
+    about_h2:"Nos valeurs",
+    about_p3:"La rigueur des sources, la simplicité du design, et le respect de chaque visiteur, quelle que soit sa langue ou son origine.",
+
+    footer_quote:"« Et entraidez-vous dans la bonté et la piété »", footer_rights:"© 2026 El Huda. Tous droits réservés."
+  }
+};
+
+function setLang(lang){
+  const dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key]) el.innerHTML = dict[key];
+  });
+  document.body.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-btn]').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+  });
+  localStorage.setItem('elhuda_lang', lang);
+  document.dispatchEvent(new CustomEvent('langchange', {detail:{lang}}));
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('[data-lang-btn]').forEach(btn=>{
+    btn.addEventListener('click', ()=> setLang(btn.getAttribute('data-lang-btn')));
+  });
+  const toggle = document.getElementById('menuToggle');
+  if(toggle){
+    toggle.addEventListener('click', ()=>{
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  }
+  const saved = localStorage.getItem('elhuda_lang');
+  if(saved && translations[saved]) setLang(saved);
+});
