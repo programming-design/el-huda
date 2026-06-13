@@ -39,7 +39,13 @@
         <option value="en">🇬🇧 English</option>
       </select>
     </div>
-    <button class="theme-toggle" id="themeToggle" title="Theme">🌙</button>
+    <button class="theme-toggle" id="themeToggle" title="Theme">🎨</button>
+    <div class="theme-panel" id="themePanel">
+      <button class="theme-option active" data-theme="dark" id="th-dark"><span class="theme-swatch swatch-dark"></span>Dark</button>
+      <button class="theme-option" data-theme="dark-warm" id="th-darkwarm"><span class="theme-swatch swatch-dark-warm"></span>Dark Warm</button>
+      <button class="theme-option" data-theme="black" id="th-black"><span class="theme-swatch swatch-black"></span>Pure Black</button>
+      <button class="theme-option" data-theme="light" id="th-light"><span class="theme-swatch swatch-light"></span>Light</button>
+    </div>
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
@@ -92,6 +98,11 @@
 <footer>
   <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
   <div class="daily-quote" id="daily-quote"></div>
+  <div class="social-bar">
+    <a class="social-btn discord" href="https://discord.com" target="_blank" rel="noopener">💬 Discord</a>
+    <a class="social-btn instagram" href="https://instagram.com" target="_blank" rel="noopener">📸 Instagram</a>
+    <a class="social-btn tiktok" href="https://tiktok.com" target="_blank" rel="noopener">🎵 TikTok</a>
+  </div>
   <div class="brand-line">الهُدى · El Huda</div>
   <p data-i18n="footer_quote">«وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ»</p>
   <p style="margin-top:10px;" data-i18n="footer_rights">© 2026 الهُدى. جميع الحقوق محفوظة.</p>

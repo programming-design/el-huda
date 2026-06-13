@@ -685,3 +685,91 @@ nav.links a{ font-size:.88em; }
   transition:.3s;
 }
 .discord-btn:hover{ background:#4752c4; transform:translateY(-2px); }
+
+/* ================= Dark warm theme (matches logo: black chalkboard) ================= */
+[data-theme="dark-warm"]{
+  --bg:#0f0e0c; --bg-soft:#1a1712; --gold:#c9a227; --gold-soft:#e2c160;
+  --text:#f0ead8; --text-dim:#9a8f7e; --line:rgba(201,162,39,.18);
+}
+[data-theme="dark-warm"] body{
+  background:radial-gradient(circle at 20% 0%, #2a2215 0%, var(--bg) 55%);
+}
+
+/* Theme selector panel */
+.theme-panel{
+  position:fixed; top:70px; left:20px; z-index:200;
+  background:var(--bg-soft); border:1px solid var(--line); border-radius:14px;
+  padding:16px; display:none; flex-direction:column; gap:8px; min-width:180px;
+  box-shadow:0 8px 32px rgba(0,0,0,.4); backdrop-filter:blur(10px);
+}
+[dir="rtl"] .theme-panel{ left:auto; right:20px; }
+.theme-panel.open{ display:flex; }
+.theme-option{
+  display:flex; align-items:center; gap:10px; padding:10px 14px;
+  border-radius:10px; cursor:pointer; border:1px solid transparent; transition:.2s;
+  background:none; font-family:inherit; font-size:.9em; color:var(--text);
+}
+.theme-option:hover{ border-color:var(--gold); }
+.theme-option.active{ border-color:var(--gold); background:rgba(212,175,106,.1); }
+.theme-swatch{ width:18px; height:18px; border-radius:50%; border:2px solid var(--line); }
+.swatch-dark{ background:#0d1f1a; border-color:#2e7d32; }
+.swatch-dark-warm{ background:#0f0e0c; border-color:#c9a227; }
+.swatch-light{ background:#f7f4ec; border-color:#b9892f; }
+
+/* ================= Social media footer ================= */
+.social-bar{
+  display:flex; gap:14px; justify-content:center; margin-bottom:20px; flex-wrap:wrap;
+}
+.social-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:30px; text-decoration:none;
+  font-weight:700; font-size:.9em; transition:.3s; border:1px solid var(--line); color:var(--text);
+}
+.social-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px -8px rgba(0,0,0,.3); }
+.social-btn.discord{ background:#5865F2; border-color:#5865F2; color:#fff; }
+.social-btn.instagram{ background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); border-color:transparent; color:#fff; }
+.social-btn.tiktok{ background:#010101; border-color:#333; color:#fff; }
+.social-btn.discord:hover{ background:#4752c4; }
+
+/* ================= Pure black theme ================= */
+[data-theme="black"]{
+  --bg:#000000; --bg-soft:#0a0a0a; --gold:#d4af6a; --gold-soft:#e9d2a3;
+  --text:#ffffff; --text-dim:#aaaaaa; --line:rgba(212,175,106,.2);
+}
+[data-theme="black"] body{
+  background:#000000;
+}
+[data-theme="black"] .topbar{ background:rgba(0,0,0,.9); }
+[data-theme="black"] .card, [data-theme="black"] .ayah-card{
+  background:rgba(212,175,106,.04);
+}
+[data-theme="black"] #quran-ayat.mode-read, [data-theme="black"] #quran-ayat.style-page{
+  background:#0a0a0a;
+}
+
+/* ================= Hero SVG illustrations ================= */
+.hero-illustration{
+  position:absolute; right:0; top:50%; transform:translateY(-50%);
+  opacity:.12; pointer-events:none; width:min(50vw, 420px);
+}
+[dir="ltr"] .hero-illustration{ right:auto; left:0; }
+.page-illustration{
+  display:block; margin:0 auto 30px; opacity:.18;
+  width:min(80px, 15vw);
+}
+
+/* ================= Section SVG banners ================= */
+.svg-banner{
+  display:flex; justify-content:center; margin-bottom:30px;
+}
+.svg-banner svg{ opacity:.5; }
+
+/* ================= Pure black theme swatch ================= */
+.swatch-black{ background:#000000; border-color:#d4af6a; }
+
+/* ================= Hero illustration layout fix ================= */
+.hero{ position:relative; overflow:hidden; }
+.page-hero{ position:relative; overflow:hidden; }
+.hero-illustration{ position:absolute; right:-40px; top:50%; transform:translateY(-50%); opacity:.1; pointer-events:none; width:min(50vw,380px); z-index:0; }
+[dir="ltr"] .hero-illustration{ right:auto; left:-40px; }
+.page-illustration{ display:block; margin:0 auto 18px; opacity:.25; width:min(80px,18vw); filter:drop-shadow(0 0 12px rgba(212,175,106,.4)); animation:float 6s ease-in-out infinite; }

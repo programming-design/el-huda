@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <!-- Praying figure silhouette -->
+  <g stroke="#d4af6a" stroke-width="1.5" opacity="0.8">
+    <!-- Head -->
+    <circle cx="150" cy="70" r="22"/>
+    <!-- Body in sujood (prostration) -->
+    <path d="M150,92 Q148,130 120,155 Q100,168 80,168" stroke-width="2"/>
+    <!-- Arms reaching -->
+    <path d="M120,155 Q110,175 85,178 Q70,180 65,178"/>
+    <path d="M150,92 Q160,130 175,150"/>
+    <!-- Prayer rug -->
+    <rect x="55" y="175" width="190" height="8" rx="4" fill="#d4af6a" fill-opacity=".2"/>
+    <!-- Decorative geometric border on rug -->
+    <rect x="58" y="177" width="184" height="4" rx="2" stroke-dasharray="4,3" stroke-width="0.8"/>
+    <!-- Stars above -->
+    <g opacity="0.5">
+      <text x="80" y="50" font-size="14" fill="#d4af6a" font-family="serif">✦</text>
+      <text x="205" y="50" font-size="14" fill="#d4af6a" font-family="serif">✦</text>
+      <text x="143" y="35" font-size="10" fill="#d4af6a" font-family="serif">☽</text>
+    </g>
+  </g>
+  <rect x="5" y="5" width="290" height="290" rx="8" stroke="#d4af6a" stroke-width="0.5" stroke-dasharray="4,4" fill="none" opacity="0.3"/>
+</svg>

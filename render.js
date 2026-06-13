@@ -84,8 +84,7 @@ function renderAllDynamic(){
   renderStoryDetail();
 }
 
-document.addEventListener('DOMContentLoaded', renderAllDynamic);
-document.addEventListener('langchange', renderAllDynamic);
+/* called from elhudaInit */
 
 /* ---- Story detail page ---- */
 function renderStoryDetail(){
@@ -113,12 +112,14 @@ function renderAsma(){
   const wrap = document.getElementById('asma-list');
   if(!wrap) return;
   const lang = currentLang();
+  if(typeof asmaList === 'undefined' || !asmaList.length) return;
+  const meaning = {ar:'ar_meaning', en:'en', fr:'fr'};
   wrap.innerHTML = asmaList.map((item, i) => `
     <div class="card reveal-scale in asma-card">
       <div class="asma-num">${i+1}</div>
       <div class="asma-ar">${item.ar}</div>
       <div class="asma-tr">${item.tr}</div>
-      <div class="asma-meaning">${item[lang] || item.en}</div>
+      <div class="asma-meaning">${item[meaning[lang]] || item.en}</div>
     </div>`).join('');
 }
 
@@ -153,5 +154,11 @@ function renderAllDynamicExtra(){
   renderFaq();
   renderLibrary();
 }
-document.addEventListener('DOMContentLoaded', renderAllDynamicExtra);
-document.addEventListener('langchange', renderAllDynamicExtra);
+
+/* Single unified init — called after ALL scripts have loaded */
+function elhudaInit(){
+  renderAllDynamic();
+  renderAllDynamicExtra();
+}
+document.addEventListener('DOMContentLoaded', elhudaInit);
+document.addEventListener('langchange', ()=>{ renderAllDynamic(); renderAllDynamicExtra(); });

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity=".2"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="190" fill="url(#rg)"/>
+  <!-- 12-pointed star (Islamic geometric art) -->
+  <g transform="translate(200,200)" stroke="#d4af6a" fill="none">
+    <g opacity="0.7" stroke-width="1">
+      <polygon points="0,-150 29,-82 100,-100 52,-38 100,50 26,26 0,100 -26,26 -100,50 -52,-38 -100,-100 -29,-82"/>
+    </g>
+    <g opacity="0.5" stroke-width="0.8">
+      <polygon points="0,-110 21,-60 73,-73 38,-28 73,37 19,19 0,73 -19,19 -73,37 -38,-28 -73,-73 -21,-60"/>
+    </g>
+    <g opacity="0.35" stroke-width="0.6">
+      <polygon points="0,-75 14,-41 50,-50 26,-19 50,25 13,13 0,50 -13,13 -50,25 -26,-19 -50,-50 -14,-41"/>
+    </g>
+    <circle r="40" stroke-width="1" opacity="0.6"/>
+    <circle r="25" stroke-width="0.8" opacity="0.4"/>
+    <circle r="150" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+    <circle r="180" stroke-width="0.4" stroke-dasharray="2,4" opacity="0.2"/>
+    <!-- 6 diamonds around center -->
+    <g opacity="0.4" stroke-width="0.8">
+      <polygon transform="rotate(0)" points="0,-95 8,-75 0,-55 -8,-75"/>
+      <polygon transform="rotate(60)" points="0,-95 8,-75 0,-55 -8,-75"/>
+      <polygon transform="rotate(120)" points="0,-95 8,-75 0,-55 -8,-75"/>
+      <polygon transform="rotate(180)" points="0,-95 8,-75 0,-55 -8,-75"/>
+      <polygon transform="rotate(240)" points="0,-95 8,-75 0,-55 -8,-75"/>
+      <polygon transform="rotate(300)" points="0,-95 8,-75 0,-55 -8,-75"/>
+    </g>
+  </g>
+</svg>

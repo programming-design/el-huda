@@ -579,18 +579,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 function setTheme(theme){
   document.documentElement.setAttribute('data-theme', theme);
+  document.body.setAttribute('data-theme', theme);
   localStorage.setItem('elhuda_theme', theme);
-  const btn = document.getElementById('themeToggle');
-  if(btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+  document.querySelectorAll('.theme-option').forEach(btn=>{
+    btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+  });
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   const saved = localStorage.getItem('elhuda_theme') || 'dark';
   setTheme(saved);
-  const btn = document.getElementById('themeToggle');
-  if(btn){
-    btn.addEventListener('click', ()=>{
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      setTheme(current === 'dark' ? 'light' : 'dark');
+
+  const toggle = document.getElementById('themeToggle');
+  const panel = document.getElementById('themePanel');
+  if(toggle && panel){
+    toggle.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      panel.classList.toggle('open');
+    });
+    document.addEventListener('click', ()=> panel.classList.remove('open'));
+    panel.addEventListener('click', e=> e.stopPropagation());
+    panel.querySelectorAll('.theme-option').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        setTheme(btn.getAttribute('data-theme'));
+        panel.classList.remove('open');
+      });
     });
   }
 });

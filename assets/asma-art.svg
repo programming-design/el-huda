@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <defs>
+    <radialGradient id="ag" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity=".25"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="150" cy="150" r="140" fill="url(#ag)"/>
+  <g transform="translate(150,150)" stroke="#d4af6a" fill="none">
+    <!-- Rotating concentric star pattern -->
+    <g opacity="0.8" stroke-width="1.2">
+      <polygon points="0,-90 17,-34 75,-27 31,12 47,70 0,44 -47,70 -31,12 -75,-27 -17,-34"/>
+    </g>
+    <g opacity="0.55" stroke-width="0.9">
+      <polygon transform="rotate(18)" points="0,-65 12,-24 54,-20 22,9 34,51 0,32 -34,51 -22,9 -54,-20 -12,-24"/>
+    </g>
+    <g opacity="0.35" stroke-width="0.7">
+      <polygon transform="rotate(36)" points="0,-45 9,-17 37,-14 15,6 23,35 0,22 -23,35 -15,6 -37,-14 -9,-17"/>
+    </g>
+    <!-- Arabic "الله" text ring (decorative circles) -->
+    <circle r="105" stroke-width="0.6" stroke-dasharray="6,3" opacity="0.4"/>
+    <circle r="115" stroke-width="0.4" opacity="0.2"/>
+    <!-- Inner glow circle -->
+    <circle r="20" fill="#d4af6a" fill-opacity=".15" stroke-width="1" opacity="0.8"/>
+    <circle r="8" fill="#d4af6a" fill-opacity=".4"/>
+  </g>
+  <rect x="5" y="5" width="290" height="290" rx="8" stroke="#d4af6a" stroke-width="0.5" stroke-dasharray="4,4" fill="none" opacity="0.35"/>
+</svg>
