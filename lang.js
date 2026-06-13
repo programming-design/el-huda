@@ -23,6 +23,16 @@ const translations = {
     mushaf_toggle:"عرض المصحف",
     bookmark_save:"📌 حفظ العلامة هنا", bookmark_go:"↩ الذهاب للعلامة المحفوظة", bookmark_saved:"تم الحفظ ✓", bookmark_none:"لا توجد علامة محفوظة",
     reciter_label:"القارئ:",
+    mushaf_style_label:"نوع الخط",
+    style_uthmani:"الرسم العثماني", style_simple:"الرسم المبسط", style_tajweed:"تلوين التجويد",
+    style_page:"مصحف (صفحة)",
+    audio_mode_label:"طريقة الاستماع",
+    audio_ayah:"آية بآية", audio_surah:"السورة كاملة",
+    play_surah:"▶ تشغيل السورة كاملة",
+    mark_label:"علامات الحفظ:",
+    mark_memorize:"للحفظ", mark_review:"للمراجعة", mark_done:"تم حفظه", mark_clear:"إزالة",
+    tafsir_source_label:"مصدر التفسير",
+    tafsir_muyassar:"التفسير الميسر", tafsir_jalalayn:"تفسير الجلالين",
     story_prev:"← السابق", story_next:"التالي →", story_back:"← كل القصص",
 
     prayer_locating:"جاري تحديد موقعك...",
@@ -63,7 +73,7 @@ const translations = {
     home_p_h:"مواقيت الصلاة", home_p_p:"تابع أوقات الصلوات الخمس بسهولة.",
     home_a_h:"مقالات", home_a_p:"محتوى مختصر لتغذية القلب والعقل يوميًا.",
     home_about_h:"من نحن", home_about_p:"تعرّف على رسالة الهُدى وأهدافها.",
-    more:"اقرأ المزيد ←",
+    more:"اقرأ المزيد",
 
     ayah_quote:"«وَقُل رَّبِّ زِدْنِي عِلْمًا»", ayah_ref:"سورة طه - الآية 114",
 
@@ -146,6 +156,16 @@ const translations = {
     mushaf_toggle:"Mushaf view",
     bookmark_save:"📌 Save bookmark here", bookmark_go:"↩ Go to bookmark", bookmark_saved:"Saved ✓", bookmark_none:"No bookmark saved",
     reciter_label:"Reciter:",
+    mushaf_style_label:"Script style",
+    style_uthmani:"Uthmani script", style_simple:"Simple script", style_tajweed:"Tajweed coloring",
+    style_page:"Mushaf (page)",
+    audio_mode_label:"Listening mode",
+    audio_ayah:"Verse by verse", audio_surah:"Full surah",
+    play_surah:"▶ Play full surah",
+    mark_label:"Memorization marks:",
+    mark_memorize:"To memorize", mark_review:"To review", mark_done:"Memorized", mark_clear:"Clear",
+    tafsir_source_label:"Tafsir source",
+    tafsir_muyassar:"Tafsir Al-Muyassar", tafsir_jalalayn:"Tafsir Al-Jalalayn",
     story_prev:"← Previous", story_next:"Next →", story_back:"← All stories",
 
     prayer_locating:"Locating you...",
@@ -186,7 +206,7 @@ const translations = {
     home_p_h:"Prayer Times", home_p_p:"Follow the five daily prayer times with ease.",
     home_a_h:"Articles", home_a_p:"Short content to nourish the heart and mind every day.",
     home_about_h:"About Us", home_about_p:"Learn about El Huda's mission and goals.",
-    more:"Read more →",
+    more:"Read more",
 
     ayah_quote:"\u201CAnd say: My Lord, increase me in knowledge\u201D", ayah_ref:"Surah Ta-Ha - Verse 114",
 
@@ -269,6 +289,16 @@ const translations = {
     mushaf_toggle:"Vue Mushaf",
     bookmark_save:"📌 Enregistrer ce repère", bookmark_go:"↩ Aller au repère", bookmark_saved:"Enregistré ✓", bookmark_none:"Aucun repère enregistré",
     reciter_label:"Récitateur :",
+    mushaf_style_label:"Style d'écriture",
+    style_uthmani:"Écriture Uthmani", style_simple:"Écriture simplifiée", style_tajweed:"Coloration Tajweed",
+    style_page:"Mushaf (page)",
+    audio_mode_label:"Mode d'écoute",
+    audio_ayah:"Verset par verset", audio_surah:"Sourate complète",
+    play_surah:"▶ Lire la sourate complète",
+    mark_label:"Repères de mémorisation :",
+    mark_memorize:"À mémoriser", mark_review:"À revoir", mark_done:"Mémorisé", mark_clear:"Effacer",
+    tafsir_source_label:"Source du Tafsir",
+    tafsir_muyassar:"Tafsir Al-Muyassar", tafsir_jalalayn:"Tafsir Al-Jalalayn",
     story_prev:"← Précédent", story_next:"Suivant →", story_back:"← Toutes les histoires",
 
     prayer_locating:"Localisation en cours...",
@@ -309,7 +339,7 @@ const translations = {
     home_p_h:"Horaires de prière", home_p_p:"Suivez facilement les cinq prières quotidiennes.",
     home_a_h:"Articles", home_a_p:"Des contenus courts pour nourrir le cœur et l'esprit chaque jour.",
     home_about_h:"À propos", home_about_p:"Découvrez la mission et les objectifs d'El Huda.",
-    more:"Lire la suite →",
+    more:"Lire la suite",
 
     ayah_quote:"« Et dis : Ô mon Seigneur, accroît mes connaissances »", ayah_ref:"Sourate Ta-Ha - Verset 114",
 

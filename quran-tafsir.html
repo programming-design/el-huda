@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>التفسير الميسر | El Huda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
@@ -49,6 +49,7 @@
   <div class="quran-controls">
     <label data-i18n="quran_select_label" for="surahSelect">اختر السورة:</label>
     <select id="surahSelect"></select>
+    
   </div>
   <div class="quran-toolbar">
   <div class="group">
@@ -57,11 +58,14 @@
     <button class="tool-btn" id="fontInc" data-i18n="font_inc">أ+</button>
   </div>
   <div class="group">
-    <button class="tool-btn" id="bookmarkSave" data-i18n="bookmark_save">📌 حفظ العلامة هنا</button>
-    <button class="tool-btn" id="bookmarkGo" data-i18n="bookmark_go">↩ الذهاب للعلامة المحفوظة</button>
-    <span class="bookmark-status" id="bookmarkStatus"></span>
+    <label data-i18n="tafsir_source_label">مصدر التفسير</label>
+    <select id="tafsirSource">
+      <option value="ar.muyassar" data-i18n="tafsir_muyassar">التفسير الميسر</option>
+      <option value="ar.jalalayn" data-i18n="tafsir_jalalayn">تفسير الجلالين</option>
+    </select>
   </div>
 </div>
+  
   <div id="quran-ayat" class="mode-tafsir"></div>
 </section>
 <footer>

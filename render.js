@@ -64,13 +64,16 @@ function renderStories(){
   const lang = currentLang();
   const list = storiesList[lang] || storiesList.ar;
   const t = translations[lang] || translations.ar;
-  wrap.innerHTML = list.map((item, i) => `
-    <div class="card reveal-scale in">
+  wrap.innerHTML = list.map((item, i) => {
+    var firstSentence = item.s.split('. ')[0];
+    if(firstSentence.length < item.s.length) firstSentence += '.';
+    return `
+    <a class="card reveal-scale in" href="story-${storySlugs[i]}.html" style="text-decoration:none; display:block;">
       <div class="icon">🕊️</div>
       <h4>${item.p}</h4>
-      <p>${item.s.split(/(?<=[.])\s/)[0]}</p>
-      <a class="more" href="story-${storySlugs[i]}.html">${t.more}</a>
-    </div>`).join('');
+      <p>${firstSentence}</p>
+    </a>`;
+  }).join('');
 }
 
 function renderAllDynamic(){
