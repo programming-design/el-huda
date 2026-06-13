@@ -14,7 +14,7 @@
 <div class="pattern"></div>
 <header class="topbar">
   <a class="brand" href="index.html">
-    <div class="mark">☾</div>
+    <img class="logo-img" src="assets/logo.png" alt="Al-Huda logo">
     <div>
       <h1 data-i18n="brand">الهُدى</h1>
       <small data-i18n="brand_sub">EL HUDA</small>
@@ -29,6 +29,7 @@
     <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
     <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
     <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
+    <a href="tools.html" data-i18n="nav_tools" class="">أدوات</a>
   </nav>
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
@@ -38,6 +39,7 @@
         <option value="en">🇬🇧 English</option>
       </select>
     </div>
+    <button class="theme-toggle" id="themeToggle" title="Theme">🌙</button>
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
@@ -76,6 +78,17 @@
     <button class="tool-btn" id="audioModeSurah" data-i18n="audio_surah">السورة كاملة</button>
   </div>
 </div>
+  
+  <div class="tajweed-legend" id="tajweedLegend" style="display:none;">
+    <strong data-i18n="tajweed_legend_title">دليل ألوان التجويد</strong>
+    <div class="tw-legend-row"><span class="tw-swatch tw-ghunnah"></span><span data-i18n="tw_ghunnah">غُنّة</span></div>
+    <div class="tw-legend-row"><span class="tw-swatch tw-qalqalah"></span><span data-i18n="tw_qalqalah">قلقلة</span></div>
+    <div class="tw-legend-row"><span class="tw-swatch tw-madd_normal"></span><span data-i18n="tw_madd">مدّ</span></div>
+    <div class="tw-legend-row"><span class="tw-swatch tw-ikhfa"></span><span data-i18n="tw_ikhfa">إخفاء/إقلاب</span></div>
+    <div class="tw-legend-row"><span class="tw-swatch tw-idgham"></span><span data-i18n="tw_idgham">إدغام</span></div>
+    <div class="tw-legend-row"><span class="tw-swatch tw-ham_wasl"></span><span data-i18n="tw_hamzat">همزة وصل / حروف ساكنة</span></div>
+    <p class="tw-disclaimer" data-i18n="tajweed_disclaimer">الألوان تقريبية لمساعدة القارئ، ولا تُعتبر مرجعًا دقيقًا لأحكام التجويد — يُرجى الرجوع لمصحف تجويد معتمد أو معلم متخصص.</p>
+  </div>
   
   <div id="quran-ayat" class="mode-audio"></div>
 </section>

@@ -14,7 +14,7 @@
 <div class="pattern"></div>
 <header class="topbar">
   <a class="brand" href="index.html">
-    <div class="mark">☾</div>
+    <img class="logo-img" src="assets/logo.png" alt="Al-Huda logo">
     <div>
       <h1 data-i18n="brand">الهُدى</h1>
       <small data-i18n="brand_sub">EL HUDA</small>
@@ -29,6 +29,7 @@
     <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
     <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
     <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
+    <a href="tools.html" data-i18n="nav_tools" class="">أدوات</a>
   </nav>
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
@@ -38,6 +39,7 @@
         <option value="en">🇬🇧 English</option>
       </select>
     </div>
+    <button class="theme-toggle" id="themeToggle" title="Theme">🌙</button>
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
@@ -59,13 +61,12 @@
   </div>
   <div class="group">
     <label data-i18n="tafsir_source_label">مصدر التفسير</label>
-    <select id="tafsirSource">
-      <option value="ar.muyassar" data-i18n="tafsir_muyassar">التفسير الميسر</option>
-      <option value="ar.jalalayn" data-i18n="tafsir_jalalayn">تفسير الجلالين</option>
-    </select>
+    <select id="tafsirSource"></select>
   </div>
 </div>
   
+  
+  <p class="prayer-note" data-i18n="tafsir_lang_note" style="text-align:center;">تُعرض التفاسير المتاحة بلغتك إن وُجدت، وبالعربية كخيار دائم.</p>
   <div id="quran-ayat" class="mode-tafsir"></div>
 </section>
 <footer>

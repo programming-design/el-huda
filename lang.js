@@ -26,6 +26,54 @@ const translations = {
     mushaf_style_label:"نوع الخط",
     style_uthmani:"الرسم العثماني", style_simple:"الرسم المبسط", style_tajweed:"تلوين التجويد",
     style_page:"مصحف (صفحة)",
+    tajweed_legend_title:"دليل ألوان التجويد",
+    tw_ghunnah:"غُنّة", tw_qalqalah:"قلقلة", tw_madd:"مدّ", tw_ikhfa:"إخفاء/إقلاب", tw_idgham:"إدغام", tw_hamzat:"همزة وصل / حروف ساكنة",
+    tajweed_disclaimer:"الألوان تقريبية لمساعدة القارئ، ولا تُعتبر مرجعًا دقيقًا لأحكام التجويد — يُرجى الرجوع لمصحف تجويد معتمد أو معلم متخصص.",
+    tafsir_lang_note:"تُعرض التفاسير المتاحة بلغتك إن وُجدت، وبالعربية كخيار دائم.",
+
+    nav_tools:"أدوات",
+    tools_title:"أدوات إسلامية", tools_lead:"مجموعة أدوات تساعدك في عبادتك اليومية.",
+    tool_asma_h:"أسماء الله الحسنى", tool_asma_p:"الأسماء الـ99 مع معانيها.",
+    tool_zakat_h:"حاسبة الزكاة", tool_zakat_p:"احسب زكاة المال والذهب بسهولة.",
+    tool_qibla_h:"اتجاه القبلة", tool_qibla_p:"حدد اتجاه القبلة من موقعك.",
+    tool_hijri_h:"التقويم الهجري", tool_hijri_p:"التاريخ الهجري اليوم والمناسبات القادمة.",
+    tool_search_h:"البحث في القرآن", tool_search_p:"ابحث عن كلمة أو آية في القرآن الكريم.",
+    tool_faq_h:"أسئلة وأجوبة", tool_faq_p:"إجابات لأسئلة شائعة في العبادات.",
+    tool_library_h:"مكتبة الكتب", tool_library_p:"روابط كتب إسلامية موثوقة ومجانية.",
+    tool_tracker_h:"ورد القرآن", tool_tracker_p:"تتبّع تقدمك اليومي في القراءة والحفظ.",
+    tool_contact_h:"تواصل معنا", tool_contact_p:"انضم لمجتمعنا على ديسكورد.",
+
+    asma_title:"أسماء الله الحسنى", asma_lead:"الأسماء التسعة والتسعون لله سبحانه وتعالى، ومن دعاه بها استجاب له.",
+
+    zakat_title:"حاسبة الزكاة", zakat_lead:"احسب زكاة مالك وذهبك (2.5%) إذا بلغت النصاب وحال عليها الحول.",
+    zakat_cash_label:"المال النقدي (المدخرات)", zakat_gold_label:"قيمة الذهب/الفضة الحالية",
+    zakat_calc_btn:"احسب الزكاة", zakat_result_label:"الزكاة المستحقة:",
+    zakat_nisab_note:"ملاحظة: الزكاة تجب إذا بلغ المال نصابًا (يُقدّر بقيمة 85 جرامًا من الذهب تقريبًا) وحال عليه عام هجري كامل. يُرجى استشارة عالم لحالتك الدقيقة.",
+
+    qibla_title:"اتجاه القبلة", qibla_lead:"يحدد اتجاه القبلة (الكعبة المشرفة) من موقعك الحالي.",
+    qibla_locating:"جاري تحديد موقعك...", qibla_result_label:"اتجاه القبلة من الشمال:",
+    qibla_note:"وجّه الجزء العلوي من جهازك نحو الشمال، ثم اتجه بزاوية الدرجات المذكورة باتجاه الشرق.",
+
+    hijri_title:"التقويم الهجري", hijri_lead:"التاريخ الهجري الحالي وأهم المناسبات الإسلامية القادمة.",
+    hijri_today_label:"التاريخ الهجري اليوم:", hijri_events_h:"مناسبات إسلامية مهمة",
+    hijri_ev1:"رأس السنة الهجرية", hijri_ev2:"يوم عاشوراء", hijri_ev3:"المولد النبوي الشريف",
+    hijri_ev4:"بداية شهر رمضان المبارك", hijri_ev5:"عيد الفطر", hijri_ev6:"يوم عرفة وعيد الأضحى",
+
+    search_title:"البحث في القرآن", search_lead:"ابحث عن أي كلمة أو عبارة في القرآن الكريم.",
+    search_placeholder:"اكتب كلمة للبحث...", search_btn:"بحث", search_no_results:"لا توجد نتائج.",
+    search_results_label:"النتائج:",
+
+    faq_title:"أسئلة وأجوبة", faq_lead:"إجابات مبسطة لأسئلة شائعة حول العبادات اليومية.",
+
+    library_title:"مكتبة الكتب", library_lead:"روابط لمصادر موثوقة لكتب إسلامية مجانية للقراءة والتحميل.",
+
+    tracker_title:"ورد القرآن", tracker_lead:"سجّل تقدمك اليومي في قراءة أو حفظ القرآن، محفوظ في متصفحك.",
+    tracker_pages_label:"عدد الصفحات/الأجزاء اليوم", tracker_add_btn:"إضافة",
+    tracker_total_label:"الإجمالي:", tracker_log_h:"السجل", tracker_pages_unit:"صفحة",
+    tracker_reset:"تصفير السجل",
+
+    contact_title:"تواصل معنا", contact_lead:"انضم إلى مجتمع AL-HUDA على ديسكورد للنقاش والتعلم والدعم.",
+    contact_join_btn:"الانضمام إلى السيرفر",
     audio_mode_label:"طريقة الاستماع",
     audio_ayah:"آية بآية", audio_surah:"السورة كاملة",
     play_surah:"▶ تشغيل السورة كاملة",
@@ -159,6 +207,54 @@ const translations = {
     mushaf_style_label:"Script style",
     style_uthmani:"Uthmani script", style_simple:"Simple script", style_tajweed:"Tajweed coloring",
     style_page:"Mushaf (page)",
+    tajweed_legend_title:"Tajweed color guide",
+    tw_ghunnah:"Ghunnah (nasal sound)", tw_qalqalah:"Qalqalah (echo)", tw_madd:"Madd (elongation)", tw_ikhfa:"Ikhfa / Iqlab", tw_idgham:"Idgham (merging)", tw_hamzat:"Hamzat al-Wasl / silent letters",
+    tajweed_disclaimer:"Colors are an approximate aid and not a precise reference for Tajweed rules — please consult a certified Tajweed Mushaf or qualified teacher.",
+    tafsir_lang_note:"Tafsir sources available in your language are shown when available, plus Arabic as a permanent option.",
+
+    nav_tools:"Tools",
+    tools_title:"Islamic Tools", tools_lead:"A set of tools to help with your daily worship.",
+    tool_asma_h:"The 99 Names of Allah", tool_asma_p:"The 99 Names with their meanings.",
+    tool_zakat_h:"Zakat Calculator", tool_zakat_p:"Easily calculate Zakat on money and gold.",
+    tool_qibla_h:"Qibla Direction", tool_qibla_p:"Find the Qibla direction from your location.",
+    tool_hijri_h:"Hijri Calendar", tool_hijri_p:"Today's Hijri date and upcoming occasions.",
+    tool_search_h:"Quran Search", tool_search_p:"Search for a word or verse in the Quran.",
+    tool_faq_h:"FAQ", tool_faq_p:"Answers to common questions about worship.",
+    tool_library_h:"Book Library", tool_library_p:"Links to trusted free islamic books.",
+    tool_tracker_h:"Quran Tracker", tool_tracker_p:"Track your daily reading/memorization progress.",
+    tool_contact_h:"Contact Us", tool_contact_p:"Join our community on Discord.",
+
+    asma_title:"The 99 Names of Allah", asma_lead:"The 99 beautiful names of Allah; whoever calls upon Him by them, He answers.",
+
+    zakat_title:"Zakat Calculator", zakat_lead:"Calculate Zakat (2.5%) on your money and gold if it reaches the threshold (Nisab) and a lunar year has passed.",
+    zakat_cash_label:"Cash savings", zakat_gold_label:"Current value of gold/silver",
+    zakat_calc_btn:"Calculate Zakat", zakat_result_label:"Zakat due:",
+    zakat_nisab_note:"Note: Zakat is due if wealth reaches the Nisab threshold (roughly equivalent to 85g of gold) and a full lunar year has passed. Please consult a scholar for your specific situation.",
+
+    qibla_title:"Qibla Direction", qibla_lead:"Find the direction of the Kaaba from your current location.",
+    qibla_locating:"Locating you...", qibla_result_label:"Qibla direction from North:",
+    qibla_note:"Point the top of your device towards North, then rotate by the given degrees towards the East.",
+
+    hijri_title:"Hijri Calendar", hijri_lead:"Today's Hijri date and major upcoming islamic occasions.",
+    hijri_today_label:"Today's Hijri date:", hijri_events_h:"Important islamic occasions",
+    hijri_ev1:"Islamic New Year", hijri_ev2:"Day of Ashura", hijri_ev3:"Prophet's Birthday (Mawlid)",
+    hijri_ev4:"Start of Ramadan", hijri_ev5:"Eid al-Fitr", hijri_ev6:"Day of Arafah & Eid al-Adha",
+
+    search_title:"Quran Search", search_lead:"Search for any word or phrase in the Holy Quran.",
+    search_placeholder:"Type a word to search...", search_btn:"Search", search_no_results:"No results found.",
+    search_results_label:"Results:",
+
+    faq_title:"FAQ", faq_lead:"Simple answers to common questions about daily worship.",
+
+    library_title:"Book Library", library_lead:"Links to trusted sources for free islamic books to read and download.",
+
+    tracker_title:"Quran Tracker", tracker_lead:"Log your daily Quran reading/memorization progress, saved in your browser.",
+    tracker_pages_label:"Pages/parts today", tracker_add_btn:"Add",
+    tracker_total_label:"Total:", tracker_log_h:"Log", tracker_pages_unit:"pages",
+    tracker_reset:"Reset log",
+
+    contact_title:"Contact Us", contact_lead:"Join the AL-HUDA community on Discord for discussion, learning and support.",
+    contact_join_btn:"Join the Server",
     audio_mode_label:"Listening mode",
     audio_ayah:"Verse by verse", audio_surah:"Full surah",
     play_surah:"▶ Play full surah",
@@ -292,6 +388,54 @@ const translations = {
     mushaf_style_label:"Style d'écriture",
     style_uthmani:"Écriture Uthmani", style_simple:"Écriture simplifiée", style_tajweed:"Coloration Tajweed",
     style_page:"Mushaf (page)",
+    tajweed_legend_title:"Guide des couleurs Tajweed",
+    tw_ghunnah:"Ghunnah (son nasal)", tw_qalqalah:"Qalqalah (écho)", tw_madd:"Madd (allongement)", tw_ikhfa:"Ikhfa / Iqlab", tw_idgham:"Idgham (fusion)", tw_hamzat:"Hamzat al-Wasl / lettres muettes",
+    tajweed_disclaimer:"Les couleurs sont une aide approximative et non une référence précise des règles du Tajweed — veuillez consulter un Mushaf Tajweed certifié ou un enseignant qualifié.",
+    tafsir_lang_note:"Les tafsirs disponibles dans votre langue sont affichés si disponibles, en plus de l'arabe comme option permanente.",
+
+    nav_tools:"Outils",
+    tools_title:"Outils Islamiques", tools_lead:"Un ensemble d'outils pour vous aider dans votre culte quotidien.",
+    tool_asma_h:"Les 99 Noms d'Allah", tool_asma_p:"Les 99 Noms avec leurs significations.",
+    tool_zakat_h:"Calculateur de Zakat", tool_zakat_p:"Calculez facilement la Zakat sur l'argent et l'or.",
+    tool_qibla_h:"Direction de la Qibla", tool_qibla_p:"Trouvez la direction de la Qibla depuis votre position.",
+    tool_hijri_h:"Calendrier Hégirien", tool_hijri_p:"La date hégirienne d'aujourd'hui et les occasions à venir.",
+    tool_search_h:"Recherche Coranique", tool_search_p:"Recherchez un mot ou un verset dans le Coran.",
+    tool_faq_h:"FAQ", tool_faq_p:"Réponses aux questions fréquentes sur le culte.",
+    tool_library_h:"Bibliothèque", tool_library_p:"Liens vers des livres islamiques gratuits et fiables.",
+    tool_tracker_h:"Suivi du Coran", tool_tracker_p:"Suivez vos progrès quotidiens de lecture/mémorisation.",
+    tool_contact_h:"Contactez-nous", tool_contact_p:"Rejoignez notre communauté sur Discord.",
+
+    asma_title:"Les 99 Noms d'Allah", asma_lead:"Les 99 plus beaux noms d'Allah ; quiconque L'invoque par eux, Il répond.",
+
+    zakat_title:"Calculateur de Zakat", zakat_lead:"Calculez la Zakat (2,5%) sur votre argent et votre or si le seuil (Nisab) est atteint et qu'une année lunaire est passée.",
+    zakat_cash_label:"Épargne en liquide", zakat_gold_label:"Valeur actuelle de l'or/argent",
+    zakat_calc_btn:"Calculer la Zakat", zakat_result_label:"Zakat due :",
+    zakat_nisab_note:"Remarque : la Zakat est due si la richesse atteint le seuil du Nisab (environ équivalent à 85g d'or) et qu'une année lunaire complète est passée. Veuillez consulter un savant pour votre situation précise.",
+
+    qibla_title:"Direction de la Qibla", qibla_lead:"Trouvez la direction de la Kaaba depuis votre position actuelle.",
+    qibla_locating:"Localisation en cours...", qibla_result_label:"Direction de la Qibla depuis le Nord :",
+    qibla_note:"Orientez le haut de votre appareil vers le Nord, puis tournez selon l'angle indiqué vers l'Est.",
+
+    hijri_title:"Calendrier Hégirien", hijri_lead:"La date hégirienne d'aujourd'hui et les principales occasions islamiques à venir.",
+    hijri_today_label:"Date hégirienne d'aujourd'hui :", hijri_events_h:"Occasions islamiques importantes",
+    hijri_ev1:"Nouvel An islamique", hijri_ev2:"Jour de Achoura", hijri_ev3:"Anniversaire du Prophète (Mawlid)",
+    hijri_ev4:"Début du Ramadan", hijri_ev5:"Aïd al-Fitr", hijri_ev6:"Jour d'Arafat et Aïd al-Adha",
+
+    search_title:"Recherche Coranique", search_lead:"Recherchez n'importe quel mot ou phrase dans le Saint Coran.",
+    search_placeholder:"Tapez un mot à rechercher...", search_btn:"Rechercher", search_no_results:"Aucun résultat trouvé.",
+    search_results_label:"Résultats :",
+
+    faq_title:"FAQ", faq_lead:"Réponses simples aux questions fréquentes sur le culte quotidien.",
+
+    library_title:"Bibliothèque", library_lead:"Liens vers des sources fiables de livres islamiques gratuits à lire et télécharger.",
+
+    tracker_title:"Suivi du Coran", tracker_lead:"Enregistrez vos progrès quotidiens de lecture/mémorisation, sauvegardés dans votre navigateur.",
+    tracker_pages_label:"Pages/parties aujourd'hui", tracker_add_btn:"Ajouter",
+    tracker_total_label:"Total :", tracker_log_h:"Journal", tracker_pages_unit:"pages",
+    tracker_reset:"Réinitialiser",
+
+    contact_title:"Contactez-nous", contact_lead:"Rejoignez la communauté AL-HUDA sur Discord pour discuter, apprendre et obtenir du soutien.",
+    contact_join_btn:"Rejoindre le serveur",
     audio_mode_label:"Mode d'écoute",
     audio_ayah:"Verset par verset", audio_surah:"Sourate complète",
     play_surah:"▶ Lire la sourate complète",
@@ -405,6 +549,10 @@ function setLang(lang){
     const key = el.getAttribute('data-i18n');
     if(dict[key]) el.innerHTML = dict[key];
   });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key]) el.setAttribute('placeholder', dict[key]);
+  });
   document.body.setAttribute('data-lang', lang);
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -427,4 +575,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   const saved = localStorage.getItem('elhuda_lang');
   if(saved && translations[saved]) setLang(saved);
+});
+
+function setTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('elhuda_theme', theme);
+  const btn = document.getElementById('themeToggle');
+  if(btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('elhuda_theme') || 'dark';
+  setTheme(saved);
+  const btn = document.getElementById('themeToggle');
+  if(btn){
+    btn.addEventListener('click', ()=>{
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
 });

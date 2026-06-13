@@ -107,3 +107,51 @@ function renderStoryDetail(){
   document.querySelectorAll('[data-i18n="story_next"]').forEach(el=> el.textContent = t.story_next);
   document.querySelectorAll('[data-i18n="story_back"]').forEach(el=> el.textContent = t.story_back);
 }
+
+/* ---- Asma al-Husna ---- */
+function renderAsma(){
+  const wrap = document.getElementById('asma-list');
+  if(!wrap) return;
+  const lang = currentLang();
+  wrap.innerHTML = asmaList.map((item, i) => `
+    <div class="card reveal-scale in asma-card">
+      <div class="asma-num">${i+1}</div>
+      <div class="asma-ar">${item.ar}</div>
+      <div class="asma-tr">${item.tr}</div>
+      <div class="asma-meaning">${item[lang] || item.en}</div>
+    </div>`).join('');
+}
+
+/* ---- FAQ ---- */
+function renderFaq(){
+  const wrap = document.getElementById('faq-list');
+  if(!wrap) return;
+  const lang = currentLang();
+  const list = faqList[lang] || faqList.ar;
+  wrap.innerHTML = list.map(item => `
+    <details class="faq-item reveal in">
+      <summary>${item.q}</summary>
+      <p>${item.a}</p>
+    </details>`).join('');
+}
+
+/* ---- Library ---- */
+function renderLibrary(){
+  const wrap = document.getElementById('library-list');
+  if(!wrap) return;
+  const lang = currentLang();
+  wrap.innerHTML = libraryLinks.map(item => `
+    <a class="card reveal-scale in" href="${item.url}" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+      <div class="icon">🔗</div>
+      <h4>${item.title}</h4>
+      <p>${item.desc[lang] || item.desc.en}</p>
+    </a>`).join('');
+}
+
+function renderAllDynamicExtra(){
+  renderAsma();
+  renderFaq();
+  renderLibrary();
+}
+document.addEventListener('DOMContentLoaded', renderAllDynamicExtra);
+document.addEventListener('langchange', renderAllDynamicExtra);

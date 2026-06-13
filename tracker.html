@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>السيرة النبوية | El Huda</title>
+<title>ورد القرآن | El Huda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -27,9 +27,9 @@
     <a href="hadiths.html" data-i18n="nav_hadiths" class="">أحاديث</a>
     <a href="duas-dhikr.html" data-i18n="nav_duas" class="">أدعية وأذكار</a>
     <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
-    <a href="articles.html" data-i18n="nav_articles" class="current">مقالات</a>
+    <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
     <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
-    <a href="tools.html" data-i18n="nav_tools" class="">أدوات</a>
+    <a href="tools.html" data-i18n="nav_tools" class="current">أدوات</a>
   </nav>
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
@@ -43,19 +43,21 @@
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
-<a class="back-link" href="articles.html" data-i18n="back_articles">← عودة إلى المقالات</a>
-<section class="page-hero" style="min-height:30vh; padding-bottom:20px;">
-  <h2 data-i18n="sirah_title">السيرة النبوية</h2>
+<section class="page-hero">
+  <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
+  <h2 data-i18n="tracker_title">ورد القرآن</h2>
+  <p class="lead" data-i18n="tracker_lead">سجّل تقدمك اليومي في قراءة أو حفظ القرآن، محفوظ في متصفحك.</p>
 </section>
-<div class="article-body reveal">
-  <p data-i18n="sirah_b1">السيرة النبوية هي سجل حياة النبي محمد ﷺ منذ مولده إلى وفاته، وهي مصدر إلهام وهداية للمسلمين في كل زمان ومكان.</p>
-  <h3 data-i18n="sirah_h1">المولد والنشأة</h3>
-  <p data-i18n="sirah_b2">وُلد النبي محمد ﷺ في مكة، ونشأ يتيمًا، وعُرف بين قومه بالصدق والأمانة قبل البعثة.</p>
-  <h3 data-i18n="sirah_h2">الرسالة والدعوة</h3>
-  <p data-i18n="sirah_b3">بدأت الرسالة بنزول الوحي في غار حراء، فدعا الناس إلى توحيد الله بالحكمة والصبر على الأذى.</p>
-  <h3 data-i18n="sirah_h3">دروس مستفادة</h3>
-  <p data-i18n="sirah_b4">تحمل السيرة النبوية دروسًا في الصبر، والرحمة، والعدل، والحكمة في التعامل مع الناس، تصلح لكل زمان.</p>
-</div>
+<section>
+  <div class="tracker-form">
+    <input type="number" id="trackerPages" min="0" step="0.5" data-i18n-placeholder="tracker_pages_label" placeholder="عدد الصفحات/الأجزاء اليوم">
+    <button id="trackerAddBtn" data-i18n="tracker_add_btn">إضافة</button>
+  </div>
+  <div class="tracker-total"><span data-i18n="tracker_total_label">الإجمالي:</span> <span id="trackerTotal">0</span></div>
+  <div class="section-head"><h3 data-i18n="tracker_log_h">السجل</h3></div>
+  <div id="trackerLogList"></div>
+  <button class="tracker-reset" id="trackerResetBtn" data-i18n="tracker_reset">تصفير السجل</button>
+</section>
 <footer>
   <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
   <div class="daily-quote" id="daily-quote"></div>
@@ -66,6 +68,7 @@
 <script src="lang.js"></script>
 <script src="content.js"></script>
 <script src="render.js"></script>
+<script src="tools.js" defer></script>
 <script src="effects.js" defer></script>
 </body>
 </html>

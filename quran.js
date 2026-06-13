@@ -2,22 +2,13 @@
 const QURAN_BASE = "https://api.alquran.cloud/v1";
 const translationEdition = { en: "en.sahih", fr: "fr.hamidullah" };
 
-const RECITERS = [
-  {id:"ar.alafasy", name:"مشاري العفاسي"},
-  {id:"ar.husary", name:"محمود خليل الحصري (مرتل)"},
-  {id:"ar.husarymujawwad", name:"الحصري (مجوّد)"},
-  {id:"ar.minshawi", name:"محمد المنشاوي (مرتل)"},
-  {id:"ar.minshawimujawwad", name:"المنشاوي (مجوّد)"},
-  {id:"ar.abdulbasitmurattal", name:"عبد الباسط عبد الصمد (مرتل)"},
-  {id:"ar.abdulsamad", name:"عبد الباسط (مجوّد)"},
-  {id:"ar.muhammadayyoub", name:"محمد أيوب"},
-  {id:"ar.muhammadjibreel", name:"محمد جبريل"},
-  {id:"ar.ahmedajamy", name:"أحمد العجمي"},
-  {id:"ar.hudhaify", name:"علي الحذيفي"},
-  {id:"ar.shaatree", name:"أبو بكر الشاطري"},
-  {id:"ar.saoodshuraym", name:"سعود الشريم"},
-  {id:"ar.mahermuaiqly", name:"ماهر المعيقلي"}
+const RECITERS_FALLBACK = [
+  {identifier:"ar.alafasy", englishName:"Mishary Alafasy", name:"مشاري العفاسي"},
+  {identifier:"ar.husary", englishName:"Mahmoud Al-Husary", name:"محمود الحصري"},
+  {identifier:"ar.minshawi", englishName:"Mohamed Al-Minshawi", name:"محمد المنشاوي"}
 ];
+let RECITERS = [...RECITERS_FALLBACK];
+let TAFSIR_EDITIONS = [{identifier:"ar.muyassar", language:"ar", name:"التفسير الميسر", englishName:"Tafsir Al-Muyassar"}];
 
 let surahListCache = null;
 let currentSurahData = null;
@@ -61,15 +52,73 @@ async function loadSurahList(){
   if(current) select.value = current;
 }
 
-/* ---------- Reciter list ---------- */
-function loadReciterList(){
+/* ---------- Reciter list (dynamic, from API) ---------- */
+async function loadReciterList(){
   const select = document.getElementById('reciterSelect');
   if(!select) return;
-  select.innerHTML = RECITERS.map(r => `<option value="${r.id}">${r.name}</option>`).join('');
-  select.value = currentReciter;
+  try{
+    const res = await fetch(`${QURAN_BASE}/edition?format=audio&language=ar&type=versebyverse`);
+    const json = await res.json();
+    if(json.data && json.data.length) RECITERS = json.data;
+  }catch(e){ /* keep fallback list */ }
+
+  select.innerHTML = RECITERS.map(r => `<option value="${r.identifier}">${r.name || r.englishName}</option>`).join('');
+  if(RECITERS.find(r=>r.identifier===currentReciter)){
+    select.value = currentReciter;
+  } else {
+    currentReciter = RECITERS[0].identifier;
+  }
   select.addEventListener('change', ()=>{
     currentReciter = select.value;
     localStorage.setItem('elhuda_reciter', currentReciter);
+    if(currentSurahData) loadSurah(currentSurahData.number);
+  });
+}
+
+/* ---------- Tafsir editions (dynamic, from API, multilingual) ---------- */
+async function loadTafsirList(){
+  const select = document.getElementById('tafsirSource');
+  if(!select) return;
+  try{
+    const res = await fetch(`${QURAN_BASE}/edition/type/tafsir`);
+    const json = await res.json();
+    if(json.data && json.data.length) TAFSIR_EDITIONS = json.data;
+  }catch(e){ /* keep fallback */ }
+
+  const lang = qLang();
+  const langMap = {ar:'ar', en:'en', fr:'fr'};
+  const preferred = TAFSIR_EDITIONS.filter(e => e.language === langMap[lang]);
+  const arabicOnes = TAFSIR_EDITIONS.filter(e => e.language === 'ar');
+  const others = TAFSIR_EDITIONS.filter(e => e.language !== langMap[lang] && e.language !== 'ar');
+
+  function optList(arr){
+    return arr.map(e => `<option value="${e.identifier}">${e.name || e.englishName} (${e.language})</option>`).join('');
+  }
+
+  let html = '';
+  if(preferred.length && lang !== 'ar'){
+    html += `<optgroup label="${lang.toUpperCase()}">${optList(preferred)}</optgroup>`;
+  }
+  html += `<optgroup label="AR">${optList(arabicOnes)}</optgroup>`;
+  if(others.length){
+    html += `<optgroup label="${(translations[lang]||translations.ar).quran_hub_tafsir_h}">${optList(others)}</optgroup>`;
+  }
+  select.innerHTML = html;
+
+  // pick a sensible default: preferred-language tafsir if available, else current/ar.muyassar
+  if(preferred.length && lang !== 'ar' && !TAFSIR_EDITIONS.find(e=>e.identifier===currentTafsirSource && e.language===langMap[lang])){
+    currentTafsirSource = preferred[0].identifier;
+  }
+  if(TAFSIR_EDITIONS.find(e=>e.identifier===currentTafsirSource)){
+    select.value = currentTafsirSource;
+  } else if(arabicOnes.length){
+    currentTafsirSource = arabicOnes[0].identifier;
+    select.value = currentTafsirSource;
+  }
+
+  select.addEventListener('change', ()=>{
+    currentTafsirSource = select.value;
+    localStorage.setItem('elhuda_tafsir_source', currentTafsirSource);
     if(currentSurahData) loadSurah(currentSurahData.number);
   });
 }
@@ -95,18 +144,16 @@ function applyMushafStyleClass(){
   else if(currentMushafStyle === 'quran-tajweed') container.classList.add('style-tajweed');
   else if(currentMushafStyle === 'quran-page') container.classList.add('style-page');
   else container.classList.add('style-uthmani');
+
+  const legend = document.getElementById('tajweedLegend');
+  if(legend) legend.style.display = (currentMushafStyle === 'quran-tajweed') ? 'block' : 'none';
 }
 
-/* ---------- Tafsir source selector ---------- */
+/* ---------- Tafsir source: initial setup ---------- */
 function setupTafsirSource(){
   const select = document.getElementById('tafsirSource');
-  if(!select) return;
-  select.value = currentTafsirSource;
-  select.addEventListener('change', ()=>{
-    currentTafsirSource = select.value;
-    localStorage.setItem('elhuda_tafsir_source', currentTafsirSource);
-    if(currentSurahData) loadSurah(currentSurahData.number);
-  });
+  if(!select) return Promise.resolve();
+  return loadTafsirList();
 }
 
 /* ---------- Audio mode (manual ayah / continuous sequential) ---------- */
@@ -310,11 +357,42 @@ function renderAyahCards(){
   }).join('');
 }
 
-/* ---------- Basic tajweed coloring ----------
-   alquran.cloud "quran-tajweed" edition wraps rule letters in
-   <tajweed class="XXXX">...</tajweed>. We convert these to <span> with CSS classes. */
+/* ---------- Tajweed parser ----------
+   The "quran-tajweed" edition returns text containing segments like:
+   [h:9421[ٱ]   -> rule code "h", numeric id, marked text "ٱ"
+   Segments can be nested. We iteratively unwrap the innermost
+   bracket groups and wrap them in <span class="tw-XXXX"> with a
+   class derived from the rule code, mapped to a tajweed category. */
+const TAJWEED_CODE_MAP = {
+  h: 'ham_wasl',      // hamzat al-wasl / silent
+  s: 'ham_wasl',      // silent letters
+  l: 'ham_wasl',      // lam shamsiyyah (silent)
+  n: 'ghunnah',       // ghunnah / noon & meem mushaddad
+  g: 'ghunnah',
+  q: 'qalqalah',      // qalqalah letters
+  m: 'madd_normal',   // madd (generic)
+  d: 'idgham',        // idgham
+  i: 'ikhfa',         // ikhfa / iqlab
+  k: 'ikhfa',
+  t: 'qalqalah'
+};
+
 function tajweedToHtml(text){
-  return text.replace(/<tajweed class="([^"]+)">/g, '<span class="tw-$1">').replace(/<\/tajweed>/g, '</span>');
+  if(!text || text.indexOf('[') === -1) return text;
+  let out = text;
+  let safety = 0;
+  // Repeatedly resolve the innermost [code:id[content]] groups
+  const re = /\[([a-zA-Z]+):?[^\[\]]*\[([^\[\]]*)\]/;
+  while(re.test(out) && safety < 200){
+    out = out.replace(re, (m, code, content) => {
+      const cls = TAJWEED_CODE_MAP[code.toLowerCase()] || 'other';
+      return `<span class="tw-${cls}">${content}</span>`;
+    });
+    safety++;
+  }
+  // remove any leftover stray brackets that weren't matched
+  out = out.replace(/[\[\]]/g, '');
+  return out;
 }
 
 /* ---------- Audio ---------- */
@@ -374,9 +452,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   const select = document.getElementById('surahSelect');
   if(!select) return;
   await loadSurahList();
-  loadReciterList();
+  await loadReciterList();
   setupMushafStyle();
-  setupTafsirSource();
+  await setupTafsirSource();
   setupAudioMode();
   select.addEventListener('change', ()=> loadSurah(select.value));
   setupFontControls();
@@ -388,6 +466,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 document.addEventListener('langchange', async ()=>{
   if(!document.getElementById('surahSelect')) return;
   await loadSurahList();
+  if(document.getElementById('tafsirSource')) await loadTafsirList();
   const select = document.getElementById('surahSelect');
   if(currentSurahData) loadSurah(select.value);
 });
