@@ -14,6 +14,16 @@ const translations = {
     quran_tafsir_label:"التفسير الميسر",
     quran_show_tafsir:"إظهار/إخفاء التفسير",
     quran_play:"تشغيل الآية",
+    quran_tab_read:"📖 المصحف", quran_tab_listen:"🎧 استماع", quran_tab_tafsir:"📝 التفسير",
+    quran_hub_read_h:"المصحف", quran_hub_read_p:"تصفح النص القرآني الكامل بخط واضح، مع الترجمة.",
+    quran_hub_listen_h:"الاستماع للتلاوات", quran_hub_listen_p:"استمع لتلاوة كل آية بصوت الشيخ مشاري العفاسي.",
+    quran_hub_tafsir_h:"التفسير الميسر", quran_hub_tafsir_p:"اقرأ تفسيرًا مبسطًا لكل آية من كتب التفسير الموثوقة.",
+    back_quran:"← العودة إلى القرآن",
+    font_dec:"أ-", font_inc:"أ+", font_label:"حجم الخط",
+    mushaf_toggle:"عرض المصحف",
+    bookmark_save:"📌 حفظ العلامة هنا", bookmark_go:"↩ الذهاب للعلامة المحفوظة", bookmark_saved:"تم الحفظ ✓", bookmark_none:"لا توجد علامة محفوظة",
+    reciter_label:"القارئ:",
+    story_prev:"← السابق", story_next:"التالي →", story_back:"← كل القصص",
 
     prayer_locating:"جاري تحديد موقعك...",
     prayer_location_label:"موقعك",
@@ -127,6 +137,16 @@ const translations = {
     quran_tafsir_label:"Simplified Tafsir",
     quran_show_tafsir:"Show/Hide Tafsir",
     quran_play:"Play verse",
+    quran_tab_read:"📖 Reading", quran_tab_listen:"🎧 Listening", quran_tab_tafsir:"📝 Tafsir",
+    quran_hub_read_h:"Reading", quran_hub_read_p:"Browse the full Quranic text in a clear font, with translation.",
+    quran_hub_listen_h:"Listen to Recitations", quran_hub_listen_p:"Listen to each verse recited by Sheikh Mishary Alafasy.",
+    quran_hub_tafsir_h:"Simplified Tafsir", quran_hub_tafsir_p:"Read a simplified explanation of each verse from trusted commentaries.",
+    back_quran:"← Back to Quran",
+    font_dec:"A-", font_inc:"A+", font_label:"Font size",
+    mushaf_toggle:"Mushaf view",
+    bookmark_save:"📌 Save bookmark here", bookmark_go:"↩ Go to bookmark", bookmark_saved:"Saved ✓", bookmark_none:"No bookmark saved",
+    reciter_label:"Reciter:",
+    story_prev:"← Previous", story_next:"Next →", story_back:"← All stories",
 
     prayer_locating:"Locating you...",
     prayer_location_label:"Your location",
@@ -240,6 +260,16 @@ const translations = {
     quran_tafsir_label:"Tafsir simplifié",
     quran_show_tafsir:"Afficher/Masquer le Tafsir",
     quran_play:"Lire le verset",
+    quran_tab_read:"📖 Lecture", quran_tab_listen:"🎧 Écoute", quran_tab_tafsir:"📝 Tafsir",
+    quran_hub_read_h:"Lecture", quran_hub_read_p:"Parcourez le texte coranique complet dans une police claire, avec traduction.",
+    quran_hub_listen_h:"Écouter les récitations", quran_hub_listen_p:"Écoutez chaque verset récité par Cheikh Mishary Alafasy.",
+    quran_hub_tafsir_h:"Tafsir simplifié", quran_hub_tafsir_p:"Lisez une explication simplifiée de chaque verset issue de commentaires fiables.",
+    back_quran:"← Retour au Coran",
+    font_dec:"A-", font_inc:"A+", font_label:"Taille du texte",
+    mushaf_toggle:"Vue Mushaf",
+    bookmark_save:"📌 Enregistrer ce repère", bookmark_go:"↩ Aller au repère", bookmark_saved:"Enregistré ✓", bookmark_none:"Aucun repère enregistré",
+    reciter_label:"Récitateur :",
+    story_prev:"← Précédent", story_next:"Suivant →", story_back:"← Toutes les histoires",
 
     prayer_locating:"Localisation en cours...",
     prayer_location_label:"Votre position",
@@ -348,16 +378,16 @@ function setLang(lang){
   document.body.setAttribute('data-lang', lang);
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('[data-lang-btn]').forEach(b=>{
-    b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+  document.querySelectorAll('#langSelect').forEach(sel=>{
+    sel.value = lang;
   });
   localStorage.setItem('elhuda_lang', lang);
   document.dispatchEvent(new CustomEvent('langchange', {detail:{lang}}));
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-  document.querySelectorAll('[data-lang-btn]').forEach(btn=>{
-    btn.addEventListener('click', ()=> setLang(btn.getAttribute('data-lang-btn')));
+  document.querySelectorAll('#langSelect').forEach(sel=>{
+    sel.addEventListener('change', ()=> setLang(sel.value));
   });
   const toggle = document.getElementById('menuToggle');
   if(toggle){

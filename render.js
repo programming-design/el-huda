@@ -53,17 +53,23 @@ function renderDuasDhikr(){
   }
 }
 
+const storySlugs = ["adam","idris","nuh","hud","salih","ibrahim","lut","ismail","ishaq","yaqub",
+  "yusuf","ayyub","shuayb","musa","harun","dawud","sulayman","ilyas","alyasa","yunus",
+  "dhulkifl","zakariya","yahya","isa","muhammad"];
+
 /* ---- Stories page ---- */
 function renderStories(){
   const wrap = document.getElementById('stories-list');
   if(!wrap) return;
   const lang = currentLang();
   const list = storiesList[lang] || storiesList.ar;
-  wrap.innerHTML = list.map(item => `
+  const t = translations[lang] || translations.ar;
+  wrap.innerHTML = list.map((item, i) => `
     <div class="card reveal-scale in">
       <div class="icon">🕊️</div>
       <h4>${item.p}</h4>
-      <p>${item.s}</p>
+      <p>${item.s.split(/(?<=[.])\s/)[0]}</p>
+      <a class="more" href="story-${storySlugs[i]}.html">${t.more}</a>
     </div>`).join('');
 }
 
@@ -72,7 +78,29 @@ function renderAllDynamic(){
   renderHadiths();
   renderDuasDhikr();
   renderStories();
+  renderStoryDetail();
 }
 
 document.addEventListener('DOMContentLoaded', renderAllDynamic);
 document.addEventListener('langchange', renderAllDynamic);
+
+/* ---- Story detail page ---- */
+function renderStoryDetail(){
+  const wrap = document.getElementById('story-detail');
+  if(!wrap) return;
+  const idx = parseInt(wrap.getAttribute('data-index'), 10);
+  const lang = currentLang();
+  const list = storiesList[lang] || storiesList.ar;
+  const item = list[idx];
+  if(!item) return;
+  wrap.innerHTML = `
+    <div class="story-icon">🕊️</div>
+    <h2>${item.p}</h2>
+    <p>${item.s}</p>
+  `;
+  // update prev/next labels
+  const t = translations[lang] || translations.ar;
+  document.querySelectorAll('[data-i18n="story_prev"]').forEach(el=> el.textContent = t.story_prev);
+  document.querySelectorAll('[data-i18n="story_next"]').forEach(el=> el.textContent = t.story_next);
+  document.querySelectorAll('[data-i18n="story_back"]').forEach(el=> el.textContent = t.story_back);
+}

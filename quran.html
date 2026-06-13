@@ -32,9 +32,11 @@
   </nav>
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
-      <button data-lang-btn="ar" class="active">AR</button>
-      <button data-lang-btn="fr">FR</button>
-      <button data-lang-btn="en">EN</button>
+      <select id="langSelect" aria-label="Language">
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
@@ -47,21 +49,21 @@
 
 <section class="reveal">
   <div class="grid">
-    <div class="card reveal-scale in">
+    <a class="card reveal-scale in" href="quran-read.html" style="text-decoration:none;">
       <div class="icon">📖</div>
-      <h4 data-i18n="quran_card1_h">تصفح المصحف</h4>
-      <p data-i18n="quran_card1_p">اقرأ القرآن الكريم كاملاً بخط واضح وتصميم مريح للعين.</p>
-    </div>
-    <div class="card reveal-scale in">
+      <h4 data-i18n="quran_hub_read_h">المصحف</h4>
+      <p data-i18n="quran_hub_read_p">تصفح النص القرآني الكامل بخط واضح، مع الترجمة.</p>
+    </a>
+    <a class="card reveal-scale in" href="quran-listen.html" style="text-decoration:none;">
       <div class="icon">🎧</div>
-      <h4 data-i18n="quran_card2_h">الاستماع للتلاوات</h4>
-      <p data-i18n="quran_card2_p">استمع إلى تلاوات هادئة بأصوات أشهر القراء.</p>
-    </div>
-    <div class="card reveal-scale in">
+      <h4 data-i18n="quran_hub_listen_h">الاستماع للتلاوات</h4>
+      <p data-i18n="quran_hub_listen_p">استمع لتلاوة كل آية بصوت الشيخ مشاري العفاسي.</p>
+    </a>
+    <a class="card reveal-scale in" href="quran-tafsir.html" style="text-decoration:none;">
       <div class="icon">📝</div>
-      <h4 data-i18n="quran_card3_h">التفسير الميسر</h4>
-      <p data-i18n="quran_card3_p">شرح مبسّط للآيات من أوثق كتب التفسير.</p>
-    </div>
+      <h4 data-i18n="quran_hub_tafsir_h">التفسير الميسر</h4>
+      <p data-i18n="quran_hub_tafsir_p">اقرأ تفسيرًا مبسطًا لكل آية من كتب التفسير الموثوقة.</p>
+    </a>
   </div>
 </section>
 

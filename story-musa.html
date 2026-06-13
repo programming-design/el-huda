@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مواقيت الصلاة | El Huda</title>
+<title>موسى | El Huda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -23,10 +23,10 @@
   <nav class="links" id="navLinks">
     <a href="index.html" data-i18n="nav_home" class="">الرئيسية</a>
     <a href="quran.html" data-i18n="nav_quran" class="">القرآن</a>
-    <a href="prayer.html" data-i18n="nav_prayer" class="current">الصلاة</a>
+    <a href="prayer.html" data-i18n="nav_prayer" class="">الصلاة</a>
     <a href="hadiths.html" data-i18n="nav_hadiths" class="">أحاديث</a>
     <a href="duas-dhikr.html" data-i18n="nav_duas" class="">أدعية وأذكار</a>
-    <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
+    <a href="stories.html" data-i18n="nav_stories" class="current">قصص الأنبياء</a>
     <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
     <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
   </nav>
@@ -41,25 +41,9 @@
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
-<section class="page-hero">
-  <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
-  <h2 data-i18n="prayer_title">مواقيت الصلاة</h2>
-  <p class="lead" data-i18n="prayer_lead">أوقات تقريبية، اضبطها حسب موقعك الجغرافي.</p>
-</section>
-
-<section class="reveal">
-  <p id="location-status"></p>
-  <div class="prayer-wrap">
-    <div class="prayer-cell" id="cell-Fajr"><div class="name" data-i18n="p_fajr">الفجر</div><div class="time" id="time-Fajr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Sunrise"><div class="name" data-i18n="p_sunrise">الشروق</div><div class="time" id="time-Sunrise">--:--</div></div>
-    <div class="prayer-cell" id="cell-Dhuhr"><div class="name" data-i18n="p_dhuhr">الظهر</div><div class="time" id="time-Dhuhr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Asr"><div class="name" data-i18n="p_asr">العصر</div><div class="time" id="time-Asr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Maghrib"><div class="name" data-i18n="p_maghrib">المغرب</div><div class="time" id="time-Maghrib">--:--</div></div>
-    <div class="prayer-cell" id="cell-Isha"><div class="name" data-i18n="p_isha">العشاء</div><div class="time" id="time-Isha">--:--</div></div>
-  </div>
-  <p id="next-prayer-label"></p>
-  <p class="prayer-note" data-i18n="prayer_note">* المواقيت تقريبية ويُفضل ضبطها حسب موقعك.</p>
-</section>
+<a class="back-link" href="stories.html" data-i18n="story_back">← كل القصص</a>
+<div class="story-detail reveal in" id="story-detail" data-index="13"></div>
+<div class="story-nav"><a href="story-shuayb.html" data-i18n="story_prev">← السابق</a><a href="stories.html" data-i18n="story_back">← كل القصص</a><a href="story-harun.html" data-i18n="story_next">التالي →</a></div>
 <footer>
   <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
   <div class="daily-quote" id="daily-quote"></div>
@@ -70,7 +54,6 @@
 <script src="lang.js"></script>
 <script src="content.js"></script>
 <script src="render.js"></script>
-<script src="prayer.js" defer></script>
 <script src="effects.js" defer></script>
 </body>
 </html>

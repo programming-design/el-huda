@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مواقيت الصلاة | El Huda</title>
+<title>التفسير الميسر | El Huda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -22,8 +22,8 @@
   </a>
   <nav class="links" id="navLinks">
     <a href="index.html" data-i18n="nav_home" class="">الرئيسية</a>
-    <a href="quran.html" data-i18n="nav_quran" class="">القرآن</a>
-    <a href="prayer.html" data-i18n="nav_prayer" class="current">الصلاة</a>
+    <a href="quran.html" data-i18n="nav_quran" class="current">القرآن</a>
+    <a href="prayer.html" data-i18n="nav_prayer" class="">الصلاة</a>
     <a href="hadiths.html" data-i18n="nav_hadiths" class="">أحاديث</a>
     <a href="duas-dhikr.html" data-i18n="nav_duas" class="">أدعية وأذكار</a>
     <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
@@ -41,24 +41,28 @@
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
-<section class="page-hero">
-  <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
-  <h2 data-i18n="prayer_title">مواقيت الصلاة</h2>
-  <p class="lead" data-i18n="prayer_lead">أوقات تقريبية، اضبطها حسب موقعك الجغرافي.</p>
+<a class="back-link" href="quran.html" data-i18n="back_quran">← العودة إلى القرآن</a>
+<section class="page-hero" style="min-height:26vh;">
+  <h2 data-i18n="quran_hub_tafsir_h">التفسير الميسر</h2>
 </section>
-
-<section class="reveal">
-  <p id="location-status"></p>
-  <div class="prayer-wrap">
-    <div class="prayer-cell" id="cell-Fajr"><div class="name" data-i18n="p_fajr">الفجر</div><div class="time" id="time-Fajr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Sunrise"><div class="name" data-i18n="p_sunrise">الشروق</div><div class="time" id="time-Sunrise">--:--</div></div>
-    <div class="prayer-cell" id="cell-Dhuhr"><div class="name" data-i18n="p_dhuhr">الظهر</div><div class="time" id="time-Dhuhr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Asr"><div class="name" data-i18n="p_asr">العصر</div><div class="time" id="time-Asr">--:--</div></div>
-    <div class="prayer-cell" id="cell-Maghrib"><div class="name" data-i18n="p_maghrib">المغرب</div><div class="time" id="time-Maghrib">--:--</div></div>
-    <div class="prayer-cell" id="cell-Isha"><div class="name" data-i18n="p_isha">العشاء</div><div class="time" id="time-Isha">--:--</div></div>
+<section>
+  <div class="quran-controls">
+    <label data-i18n="quran_select_label" for="surahSelect">اختر السورة:</label>
+    <select id="surahSelect"></select>
   </div>
-  <p id="next-prayer-label"></p>
-  <p class="prayer-note" data-i18n="prayer_note">* المواقيت تقريبية ويُفضل ضبطها حسب موقعك.</p>
+  <div class="quran-toolbar">
+  <div class="group">
+    <label data-i18n="font_label">حجم الخط</label>
+    <button class="tool-btn" id="fontDec" data-i18n="font_dec">أ-</button>
+    <button class="tool-btn" id="fontInc" data-i18n="font_inc">أ+</button>
+  </div>
+  <div class="group">
+    <button class="tool-btn" id="bookmarkSave" data-i18n="bookmark_save">📌 حفظ العلامة هنا</button>
+    <button class="tool-btn" id="bookmarkGo" data-i18n="bookmark_go">↩ الذهاب للعلامة المحفوظة</button>
+    <span class="bookmark-status" id="bookmarkStatus"></span>
+  </div>
+</div>
+  <div id="quran-ayat" class="mode-tafsir"></div>
 </section>
 <footer>
   <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
@@ -70,7 +74,7 @@
 <script src="lang.js"></script>
 <script src="content.js"></script>
 <script src="render.js"></script>
-<script src="prayer.js" defer></script>
+<script src="quran.js" defer></script>
 <script src="effects.js" defer></script>
 </body>
 </html>
