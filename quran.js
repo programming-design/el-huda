@@ -330,6 +330,8 @@ function renderAyahCards(){
       ? `<button class="play-btn" onclick="playAyah('${audioUrl}', this)" title="${t.quran_play}" style="${audioMode==='surah'?'display:none;':''}">▶</button>`
       : '';
 
+    const shareBtn = `<button class="share-btn" onclick="shareAyah('${ayah.text.replace(/'/g,"\\'")}','${currentSurahData.number}:${ayah.numberInSurah}')" title="${t.share_title||'مشاركة'}">📤</button>`;
+
     const markButtons = mode === 'read'
       ? `<div class="mark-dots">
           <button class="mark-dot ${markColor==='memorize'?'active':''}" style="--c:#e9c46a" onclick="setMark(${currentSurahData.number},${ayah.numberInSurah},'memorize',this)" title="${t.mark_memorize}"></button>
@@ -347,7 +349,7 @@ function renderAyahCards(){
     <div class="ayah-card reveal-scale in mark-${markColor}" data-ayah="${ayah.numberInSurah}">
       <div class="ayah-top">
         <span class="ayah-num"><span>${ayah.numberInSurah}</span></span>
-        ${playBtn}
+        <div style="display:flex;gap:6px;">${playBtn}${shareBtn}</div>
       </div>
       <p class="ayah-arabic">${ayahText}</p>
       ${translation ? `<p class="ayah-translation"><strong>${t.quran_translation_label}:</strong> ${trText}</p>` : ''}

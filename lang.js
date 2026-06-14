@@ -32,6 +32,7 @@ const translations = {
     tafsir_lang_note:"تُعرض التفاسير المتاحة بلغتك إن وُجدت، وبالعربية كخيار دائم.",
 
     nav_tools:"أدوات",
+    nav_ramadan:"رمضان",
     tools_title:"أدوات إسلامية", tools_lead:"مجموعة أدوات تساعدك في عبادتك اليومية.",
     tool_asma_h:"أسماء الله الحسنى", tool_asma_p:"الأسماء الـ99 مع معانيها.",
     tool_zakat_h:"حاسبة الزكاة", tool_zakat_p:"احسب زكاة المال والذهب بسهولة.",
@@ -213,6 +214,7 @@ const translations = {
     tafsir_lang_note:"Tafsir sources available in your language are shown when available, plus Arabic as a permanent option.",
 
     nav_tools:"Tools",
+    nav_ramadan:"Ramadan",
     tools_title:"Islamic Tools", tools_lead:"A set of tools to help with your daily worship.",
     tool_asma_h:"The 99 Names of Allah", tool_asma_p:"The 99 Names with their meanings.",
     tool_zakat_h:"Zakat Calculator", tool_zakat_p:"Easily calculate Zakat on money and gold.",
@@ -394,6 +396,7 @@ const translations = {
     tafsir_lang_note:"Les tafsirs disponibles dans votre langue sont affichés si disponibles, en plus de l'arabe comme option permanente.",
 
     nav_tools:"Outils",
+    nav_ramadan:"Ramadan",
     tools_title:"Outils Islamiques", tools_lead:"Un ensemble d'outils pour vous aider dans votre culte quotidien.",
     tool_asma_h:"Les 99 Noms d'Allah", tool_asma_p:"Les 99 Noms avec leurs significations.",
     tool_zakat_h:"Calculateur de Zakat", tool_zakat_p:"Calculez facilement la Zakat sur l'argent et l'or.",
@@ -544,18 +547,20 @@ const translations = {
 };
 
 function setLang(lang){
-  const dict = translations[lang];
+  const dict = translations[lang] || translations.ar;
+  if(!dict) return;
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.getAttribute('data-i18n');
-    if(dict[key]) el.innerHTML = dict[key];
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
     const key = el.getAttribute('data-i18n-placeholder');
     if(dict[key]) el.setAttribute('placeholder', dict[key]);
   });
-  document.body.setAttribute('data-lang', lang);
-  document.documentElement.lang = lang;
+  // Update html dir for RTL/LTR
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  document.body.setAttribute('data-lang', lang);
   document.querySelectorAll('#langSelect').forEach(sel=>{
     sel.value = lang;
   });
@@ -571,24 +576,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const navLinks = document.getElementById('navLinks');
   if(toggle && navLinks){
     toggle.addEventListener('click', ()=>{
-      const isOpen = navLinks.classList.toggle('open');
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
+      navLinks.classList.toggle('open');
     });
-    // Close on link click
+    // Close when clicking a link
     navLinks.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        navLinks.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.textContent = '☰';
-      });
+      a.addEventListener('click', ()=> navLinks.classList.remove('open'));
     });
-    // Close on backdrop tap
-    navLinks.addEventListener('click', (e)=>{
-      if(e.target === navLinks){
+    // Close when clicking outside
+    document.addEventListener('click', (e)=>{
+      if(!toggle.contains(e.target) && !navLinks.contains(e.target)){
         navLinks.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.textContent = '☰';
       }
     });
   }
@@ -629,3 +626,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
   document.addEventListener('click', ()=> document.querySelectorAll('.theme-panel.open').forEach(p=>p.classList.remove('open')));
 });
+    ramadan_title:"عداد رمضان", ramadan_lead:"الوقت المتبقي حتى شهر رمضان المبارك.",
+    ramadan_next:"رمضان القادم:", ramadan_days:"يوم", ramadan_hrs:"ساعة", ramadan_mins:"دقيقة", ramadan_secs:"ثانية",
+    ramadan_in_progress:"رمضان كريم — نحن في شهر رمضان المبارك",
+    share_title:"مشاركة الآية", share_copied:"تم النسخ!",
+    install_pwa:"تثبيت التطبيق", install_pwa_desc:"أضف الهُدى إلى شاشتك الرئيسية",

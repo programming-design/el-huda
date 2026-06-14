@@ -1004,13 +1004,14 @@ body { overflow-x: hidden; -webkit-font-smoothing: antialiased; }
   .theme-toggle { width: 32px; height: 32px; font-size: .95em; }
   nav.links { display: none; }
   nav.links.open {
-    display: flex; position: fixed; top: 62px; right: 0; left: 0; bottom: 0;
-    flex-direction: column; background: rgba(13,31,26,.97);
-    padding: 30px 6vw; gap: 20px; z-index: 55;
-    backdrop-filter: blur(16px); overflow-y: auto;
-    animation: slideDown .25s ease;
+    display: flex; position: absolute; top: 100%; right: 0; left: 0;
+    flex-direction: column; background: var(--bg-soft);
+    padding: 16px 6vw; gap: 16px; z-index: 60;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    backdrop-filter: blur(14px);
   }
-  nav.links.open a { font-size: 1.2em; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  nav.links.open a { font-size: 1.05em; padding: 8px 0; border-bottom: 1px solid var(--line); }
   .menu-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
   .theme-panel { min-width: 140px; font-size: .85em; }
 }
@@ -1187,4 +1188,169 @@ body.nav-open { overflow: hidden; }
 .menu-toggle:hover { border-color: var(--gold); background: rgba(212,175,106,.08); }
 @media (max-width: 880px) {
   .menu-toggle { display: flex; }
+}
+
+/* ============================================================
+   ISSUE 1 FIX: Hero mobile overflow & layout
+   ============================================================ */
+/* Override the desktop right-align hero for mobile */
+@media (max-width: 900px) {
+  .hero {
+    text-align: center !important;
+    align-items: center !important;
+    padding: 50px 6vw 60px !important;
+    padding-right: 6vw !important;
+    padding-left: 6vw !important;
+    min-height: 92dvh;
+  }
+  .hero h2 { font-size: clamp(1.9em, 7.5vw, 3.2em) !important; }
+  .hero p.lead { font-size: .95em; max-width: 95%; }
+  .hero .cta-row { justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .hero-illustration { display: none !important; }
+  .btn { padding: 12px 20px; font-size: .88em; }
+}
+
+/* Topbar: prevent overflow */
+.topbar {
+  flex-wrap: nowrap;
+  position: sticky; top: 0; z-index: 60;
+  width: 100%; overflow: visible;
+}
+header.topbar { overflow: visible !important; }
+
+/* Nav slide-down: must be relative to topbar */
+header.topbar { position: sticky; top: 0; }
+nav.links { position: static; }
+
+@media (max-width: 880px) {
+  .topbar { padding: 10px 4vw; }
+  .brand { gap: 8px; }
+  .brand .logo-img, .brand .mark { width: 32px; height: 32px; }
+  .brand h1 { font-size: 1.05em; }
+  .brand small { display: none; }
+  nav.links { display: none; }
+  nav.links.open {
+    display: flex !important;
+    position: absolute; top: 100%; right: 0; left: 0;
+    flex-direction: column;
+    background: rgba(13,31,26,.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 6vw 18px;
+    gap: 4px; z-index: 60;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+  nav.links.open a {
+    padding: 10px 4px;
+    font-size: 1em;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+  }
+  nav.links.open a:last-child { border-bottom: none; }
+  nav.links.open a:hover { color: var(--gold-soft); }
+  .lang-switch select { font-size: .78em; padding: 6px 20px 6px 8px; min-width: 52px; }
+  .theme-toggle { width: 32px; height: 32px; font-size: .9em; padding: 0; }
+  .menu-toggle { display: flex !important; }
+}
+
+/* Quick access scroll on mobile */
+@media (max-width: 700px) {
+  .quick-access {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .quick-access::-webkit-scrollbar { display: none; }
+  .qa-btn { flex-shrink: 0; white-space: nowrap; }
+  .lp-stats { grid-template-columns: repeat(3, 1fr); }
+  .lp-features { grid-template-columns: 1fr; }
+}
+
+/* body nav-open removed */
+body.nav-open { overflow: auto !important; }
+
+/* ============================================================
+   RAMADAN COUNTDOWN + SHARE + PWA STYLES
+   ============================================================ */
+.countdown-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  max-width:500px; margin:0 auto 30px;
+}
+.countdown-cell{
+  background:linear-gradient(145deg,rgba(212,175,106,.1),rgba(255,255,255,.02));
+  border:1px solid var(--line); border-radius:16px; padding:20px 10px;
+  text-align:center;
+}
+.cd-num{
+  display:block; font-size:2.8em; font-weight:900; color:var(--gold-soft);
+  font-family:'Poppins',sans-serif; line-height:1;
+}
+.cd-label{ display:block; color:var(--text-dim); font-size:.8em; margin-top:6px; }
+.ramadan-msg{
+  font-size:1.8em; color:var(--gold-soft); font-weight:700; padding:30px;
+}
+@media(max-width:500px){
+  .countdown-grid{ grid-template-columns:repeat(2,1fr); }
+  .cd-num{ font-size:2.2em; }
+}
+
+/* Share button on ayah cards */
+.share-btn{
+  background:none; border:1px solid var(--line); color:var(--text-dim);
+  border-radius:50%; width:36px; height:36px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.9em; transition:.25s;
+}
+.share-btn:hover{ border-color:var(--gold); color:var(--gold); }
+
+/* PWA install banner */
+.pwa-banner{
+  position:fixed; bottom:20px; right:20px;
+  background:var(--bg-soft); border:1px solid var(--gold);
+  border-radius:16px; padding:14px 18px;
+  display:none; align-items:center; gap:12px;
+  box-shadow:0 8px 30px rgba(0,0,0,.4); z-index:100;
+  max-width:300px;
+}
+.pwa-banner.show{ display:flex; }
+.pwa-banner .pwa-text{ flex:1; }
+.pwa-banner .pwa-title{ color:var(--gold-soft); font-weight:700; font-size:.95em; }
+.pwa-banner .pwa-desc{ color:var(--text-dim); font-size:.8em; }
+.pwa-banner .btn{ padding:8px 16px; font-size:.85em; flex-shrink:0; }
+.pwa-close{
+  position:absolute; top:8px; right:8px;
+  background:none; border:none; color:var(--text-dim); cursor:pointer;
+  font-size:1em; line-height:1;
+}
+[dir="ltr"] .pwa-banner{ right:auto; left:20px; }
+[dir="ltr"] .pwa-close{ right:auto; left:8px; }
+
+/* ============================================================
+   PROFESSIONAL DESIGN IMPROVEMENTS
+   ============================================================ */
+
+/* Smooth page transitions */
+main, section, .hero, .page-hero{ transition: none; }
+
+/* Better card focus states for accessibility */
+.card:focus-visible, a.card:focus-visible, .prophet-card:focus-visible{
+  outline: 2px solid var(--gold); outline-offset: 3px;
+}
+
+/* Improved divider */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-soft) 50%, var(--gold) 70%, transparent);
+  max-width:900px; margin:0 auto; opacity:.6;
+}
+
+/* Better section spacing on mobile */
+@media(max-width:700px){
+  .lp-section{ padding:50px 5vw; }
+  .lp-section-head h2{ font-size:1.6em; }
+  .countdown-grid{ gap:10px; }
+  .cd-num{ font-size:2em; }
 }

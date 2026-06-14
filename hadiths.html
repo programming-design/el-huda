@@ -7,6 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d1f1a">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body data-lang="ar">
@@ -30,6 +35,7 @@
     <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
     <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
     <a href="tools.html" data-i18n="nav_tools" class="">أدوات</a>
+    <a href="ramadan.html" data-i18n="nav_ramadan" class="">رمضان</a>
   </nav>
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
@@ -72,6 +78,28 @@
   <p data-i18n="footer_quote">«وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ»</p>
   <p style="margin-top:10px;" data-i18n="footer_rights">© 2026 الهُدى. جميع الحقوق محفوظة.</p>
 </footer>
+<!-- PWA Install Banner -->
+<div class="pwa-banner" id="pwaInstallBtn">
+  <button class="pwa-close" onclick="document.getElementById('pwaInstallBtn').classList.remove('show')">✕</button>
+  <div class="pwa-text">
+    <div class="pwa-title" data-i18n="install_pwa">تثبيت التطبيق</div>
+    <div class="pwa-desc" data-i18n="install_pwa_desc">أضف الهُدى إلى شاشتك الرئيسية</div>
+  </div>
+  <button class="btn primary" style="padding:8px 14px;font-size:.82em;">+</button>
+</div>
+<script>
+// Register Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=> navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+// PWA install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault(); deferredPrompt = e;
+  const btn = document.getElementById('pwaInstallBtn');
+  if(btn){ btn.style.display='flex'; btn.addEventListener('click', ()=>{ deferredPrompt.prompt(); deferredPrompt=null; btn.style.display='none'; }); }
+});
+</script>
 <script src="lang.js"></script>
 <script src="content.js"></script>
 <script src="render.js"></script>

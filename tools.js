@@ -150,3 +150,86 @@ document.addEventListener('langchange', ()=>{
   setupHijri();
   renderTrackerLog();
 });
+
+/* ============ Ramadan Countdown ============ */
+function setupRamadan(){
+  const display = document.getElementById('ramadanDisplay');
+  const grid = document.getElementById('countdownGrid');
+  if(!display) return;
+
+  async function getNextRamadan(){
+    try{
+      // Get current hijri date
+      const res = await fetch('https://api.aladhan.com/v1/gToH');
+      const json = await res.json();
+      const hijri = json.data.hijri;
+      const currentMonth = parseInt(hijri.month.number);
+      const currentYear = parseInt(hijri.year);
+
+      // Ramadan = month 9
+      let targetYear = currentYear;
+      if(currentMonth > 9) targetYear = currentYear + 1;
+      if(currentMonth === 9) return null; // In Ramadan!
+
+      // Get Gregorian date of 1 Ramadan next year/this year
+      const r = await fetch(`https://api.aladhan.com/v1/hToG/${1}/${9}/${targetYear}`);
+      const rj = await r.json();
+      return new Date(rj.data.gregorian.date.split('-').reverse().join('-'));
+    }catch(e){ return null; }
+  }
+
+  function formatCountdown(ms, t){
+    if(ms <= 0) return null;
+    const total = Math.floor(ms/1000);
+    const days = Math.floor(total/86400);
+    const hrs = Math.floor((total%86400)/3600);
+    const mins = Math.floor((total%3600)/60);
+    const secs = total%60;
+    return {days, hrs, mins, secs};
+  }
+
+  getNextRamadan().then(targetDate=>{
+    const lang = document.body.getAttribute('data-lang')||'ar';
+    const t = translations[lang]||translations.ar;
+
+    if(!targetDate){
+      display.innerHTML = `<div class="ramadan-msg">${t.ramadan_in_progress||'رمضان كريم'}</div>`;
+      return;
+    }
+
+    display.innerHTML = `<p style="color:var(--text-dim);font-size:1.1em;">${t.ramadan_next||'رمضان القادم'}</p><p style="color:var(--gold-soft);font-size:1.3em;font-weight:700;">${targetDate.toLocaleDateString()}</p>`;
+
+    if(grid) grid.style.display='grid';
+
+    function tick(){
+      const diff = targetDate - new Date();
+      const c = formatCountdown(diff);
+      if(!c){ if(grid) grid.innerHTML='<div class="ramadan-msg">🌙 رمضان كريم</div>'; return; }
+      if(grid) grid.innerHTML = [
+        [c.days, t.ramadan_days||'يوم'],
+        [c.hrs, t.ramadan_hrs||'ساعة'],
+        [c.mins, t.ramadan_mins||'دقيقة'],
+        [c.secs, t.ramadan_secs||'ثانية']
+      ].map(([n,l])=>`<div class="countdown-cell"><span class="cd-num">${String(n).padStart(2,'0')}</span><span class="cd-label">${l}</span></div>`).join('');
+    }
+    tick();
+    setInterval(tick, 1000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupRamadan);
+
+/* ============ Share Ayah ============ */
+function shareAyah(text, ref){
+  const shareText = `${text}\n— ${ref}\n\n الهُدى · El Huda`;
+  if(navigator.share){
+    navigator.share({title:'آية قرآنية', text:shareText}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(shareText).then(()=>{
+      const lang = document.body.getAttribute('data-lang')||'ar';
+      const t = translations[lang]||translations.ar;
+      alert(t.share_copied||'تم النسخ!');
+    });
+  }
+}
+window.shareAyah = shareAyah;

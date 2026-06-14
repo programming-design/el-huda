@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رمضان | El Huda</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d1f1a">
+<style>
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:500px;margin:30px auto;}
+.countdown-cell{background:linear-gradient(145deg,rgba(212,175,106,.1),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:16px;padding:22px 10px;text-align:center;}
+.cd-num{display:block;font-size:2.8em;font-weight:900;color:var(--gold-soft);font-family:"Poppins",sans-serif;line-height:1;}
+.cd-label{display:block;color:var(--text-dim);font-size:.8em;margin-top:6px;}
+.ramadan-msg{font-size:1.8em;color:var(--gold-soft);font-weight:700;padding:40px;}
+@media(max-width:480px){.countdown-grid{grid-template-columns:repeat(2,1fr);}.cd-num{font-size:2.2em;}}
+</style>
+</head>
+<body data-lang="ar">
+<canvas id="bg3d"></canvas>
+<div class="pattern"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img class="logo-img" src="assets/logo.png" alt="Al-Huda">
+    <div><h1 data-i18n="brand">الهُدى</h1><small data-i18n="brand_sub">EL HUDA</small></div>
+  </a>
+  <nav class="links" id="navLinks">
+    <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+    <a href="quran.html" data-i18n="nav_quran">القرآن</a>
+    <a href="prayer.html" data-i18n="nav_prayer">الصلاة</a>
+    <a href="tools.html" data-i18n="nav_tools">أدوات</a>
+    <a href="ramadan.html" data-i18n="nav_ramadan" class="current">رمضان</a>
+    <a href="about.html" data-i18n="nav_about">من نحن</a>
+  </nav>
+  <div>
+    <div class="lang-switch"><select id="langSelect"><option value="ar">AR</option><option value="fr">FR</option><option value="en">EN</option></select></div>
+    <div class="theme-wrap">
+      <button class="theme-toggle" id="themeToggle">🎨</button>
+      <div class="theme-panel" id="themePanel">
+        <button class="theme-option active" data-theme="dark"><span class="theme-swatch swatch-dark"></span>Dark</button>
+        <button class="theme-option" data-theme="dark-warm"><span class="theme-swatch swatch-dark-warm"></span>Warm</button>
+        <button class="theme-option" data-theme="black"><span class="theme-swatch swatch-black"></span>Black</button>
+        <button class="theme-option" data-theme="light"><span class="theme-swatch swatch-light"></span>Light</button>
+      </div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </div>
+</header>
+
+<section class="page-hero" style="min-height:30vh;text-align:center;">
+  <div class="eyebrow">🌙 رمضان</div>
+  <h2 id="ramadanTitle" data-i18n="ramadan_title">عداد رمضان</h2>
+  <p class="lead" data-i18n="ramadan_lead">الوقت المتبقي حتى شهر رمضان المبارك.</p>
+</section>
+
+<section style="position:relative;z-index:1;max-width:800px;margin:0 auto;padding:0 6vw 60px;text-align:center;">
+  <div id="ramadanDisplay"></div>
+  <div class="countdown-grid" id="countdownGrid" style="display:none;"></div>
+
+  <div class="divider" style="margin:40px auto;"></div>
+
+  <div class="ayah-block reveal" style="padding:30px 0;">
+    <p class="quote">«شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ»</p>
+    <p class="ref">سورة البقرة - الآية 185</p>
+  </div>
+
+  <div class="divider" style="margin:40px auto;"></div>
+
+  <div class="grid">
+    <a class="card anim-card" href="quran-read.html" style="text-decoration:none;display:block;">
+      <div class="icon">📖</div>
+      <h4>القرآن في رمضان</h4>
+      <p>اختم القرآن في رمضان مع قارئك المفضل</p>
+    </a>
+    <a class="card anim-card" href="duas-dhikr.html" style="text-decoration:none;display:block;">
+      <div class="icon">🤲</div>
+      <h4>أدعية رمضان</h4>
+      <p>أدعية وأذكار خاصة بشهر رمضان المبارك</p>
+    </a>
+    <a class="card anim-card" href="tracker.html" style="text-decoration:none;display:block;">
+      <div class="icon">📈</div>
+      <h4>ورد القرآن اليومي</h4>
+      <p>تتبع ختمتك في رمضان يومًا بيوم</p>
+    </a>
+    <a class="card anim-card" href="prayer.html" style="text-decoration:none;display:block;">
+      <div class="icon">🕒</div>
+      <h4>مواقيت الإفطار</h4>
+      <p>تابع وقت المغرب لكل يوم من أيام رمضان</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="social-bar">
+    <a class="social-btn discord" href="https://discord.com" target="_blank" rel="noopener">💬 Discord</a>
+    <a class="social-btn instagram" href="https://instagram.com" target="_blank" rel="noopener">📸 Instagram</a>
+    <a class="social-btn tiktok" href="https://tiktok.com" target="_blank" rel="noopener">🎵 TikTok</a>
+  </div>
+  <div class="brand-line">الهُدى · El Huda</div>
+  <p>© 2026 El Huda.</p>
+</footer>
+
+<script src="lang.js"></script>
+<script src="tools.js"></script>
+<script src="effects.js" defer></script>
+</body>
+</html>
