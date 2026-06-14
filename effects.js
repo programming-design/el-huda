@@ -119,3 +119,49 @@ new MutationObserver(muts=>{
     muts.forEach(m=> m.addedNodes.forEach(n=>{ if(n.classList && (n.classList.contains('reveal')||n.classList.contains('reveal-scale'))) observe(n); if(n.querySelectorAll) n.querySelectorAll('.reveal,.reveal-scale').forEach(observe); }));
   }).observe(document.documentElement,{childList:true,subtree:true});
 })();
+
+/* ============ Counter animation for stats ============ */
+(function(){
+  function animateCounter(el){
+    if(el._counted) return;
+    el._counted = true;
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    if(!target) return;
+    const duration = 1800;
+    const start = performance.now();
+    function update(now){
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out-cubic
+      el.textContent = Math.round(eased * target).toLocaleString();
+      if(progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  function checkCounters(){
+    document.querySelectorAll('[data-count]').forEach(el=>{
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.9) animateCounter(el);
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) animateCounter(e.target); });
+    }, {threshold:0.3});
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('[data-count]').forEach(el=> obs.observe(el));
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', ()=> window.addEventListener('scroll', checkCounters, {passive:true}));
+  }
+})();
+
+/* ============ Auto-show all anim-cards after 2s (mobile fallback) ============ */
+setTimeout(()=>{
+  document.querySelectorAll('.anim-card:not(.vis):not(.in)').forEach(el=>{
+    el.classList.add('vis');
+    el.classList.add('in');
+  });
+}, 2000);

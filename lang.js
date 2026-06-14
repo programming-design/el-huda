@@ -568,9 +568,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
     sel.addEventListener('change', ()=> setLang(sel.value));
   });
   const toggle = document.getElementById('menuToggle');
-  if(toggle){
+  const navLinks = document.getElementById('navLinks');
+  if(toggle && navLinks){
     toggle.addEventListener('click', ()=>{
-      document.getElementById('navLinks').classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
+      document.body.classList.toggle('nav-open', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        toggle.textContent = '☰';
+      });
+    });
+    // Close on backdrop tap
+    navLinks.addEventListener('click', (e)=>{
+      if(e.target === navLinks){
+        navLinks.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        toggle.textContent = '☰';
+      }
     });
   }
   // Defer so render.js DOMContentLoaded handler runs first and registers langchange listener
