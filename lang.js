@@ -573,8 +573,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
       document.getElementById('navLinks').classList.toggle('open');
     });
   }
-  const saved = localStorage.getItem('elhuda_lang');
-  if(saved && translations[saved]) setLang(saved);
+  // Defer so render.js DOMContentLoaded handler runs first and registers langchange listener
+  setTimeout(()=>{
+    const saved = localStorage.getItem('elhuda_lang');
+    if(saved && translations[saved]) setLang(saved);
+  }, 0);
 });
 
 function setTheme(theme){
@@ -589,20 +592,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const saved = localStorage.getItem('elhuda_theme') || 'dark';
   setTheme(saved);
 
-  const toggle = document.getElementById('themeToggle');
-  const panel = document.getElementById('themePanel');
-  if(toggle && panel){
+  // Theme panels (all pages)
+  document.querySelectorAll('.theme-toggle').forEach(toggle=>{
+    const panel = toggle.nextElementSibling;
+    if(!panel || !panel.classList.contains('theme-panel')) return;
     toggle.addEventListener('click', (e)=>{
       e.stopPropagation();
+      document.querySelectorAll('.theme-panel.open').forEach(p=>{ if(p!==panel) p.classList.remove('open'); });
       panel.classList.toggle('open');
     });
-    document.addEventListener('click', ()=> panel.classList.remove('open'));
-    panel.addEventListener('click', e=> e.stopPropagation());
     panel.querySelectorAll('.theme-option').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         setTheme(btn.getAttribute('data-theme'));
         panel.classList.remove('open');
       });
     });
-  }
+  });
+  document.addEventListener('click', ()=> document.querySelectorAll('.theme-panel.open').forEach(p=>p.classList.remove('open')));
 });

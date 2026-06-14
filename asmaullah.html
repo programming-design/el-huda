@@ -4,76 +4,132 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>أسماء الله الحسنى | El Huda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Poppins:wght@300;400;600;800&family=Amiri+Quran&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<style>
+.asma-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;padding:0 0 60px;}
+.asma-item{
+  background:linear-gradient(145deg,rgba(212,175,106,.08),rgba(255,255,255,.02));
+  border:1px solid var(--line);border-radius:16px;padding:20px 14px;
+  text-align:center;opacity:0;transform:translateY(24px) scale(.95);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.asma-item.vis{opacity:1;transform:translateY(0) scale(1);}
+.asma-item:hover{transform:translateY(-8px) scale(1.04)!important;border-color:var(--gold);box-shadow:0 18px 40px -14px rgba(212,175,106,.4);}
+.asma-item:active{transform:scale(.96)!important;transition-duration:.1s!important;}
+.asma-item::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(110deg,transparent 30%,rgba(212,175,106,.12) 50%,transparent 70%);background-size:200%;opacity:0;transition:opacity .3s;}
+.asma-item:hover::after{opacity:1;animation:shimmer .8s linear;}
+.asma-n{color:var(--gold);font-size:.72em;letter-spacing:2px;margin-bottom:8px;font-family:"Poppins",sans-serif;}
+.asma-ar{font-family:"Amiri Quran","Tajawal",serif;font-size:1.55em;color:var(--gold-soft);margin-bottom:6px;line-height:1.6;transition:text-shadow .3s;}
+.asma-item:hover .asma-ar{text-shadow:0 0 18px rgba(212,175,106,.6);}
+.asma-tr{font-size:.78em;color:var(--text-dim);margin-bottom:6px;font-family:"Poppins",sans-serif;direction:ltr;}
+.asma-mean{font-size:.86em;color:var(--text);line-height:1.6;}
+.asma-search{display:flex;gap:10px;max-width:500px;margin:0 auto 24px;}
+.asma-search input{flex:1;padding:11px 18px;border-radius:30px;border:1px solid var(--line);background:var(--bg-soft);color:var(--text);font-family:inherit;font-size:1em;}
+.asma-search input:focus{outline:none;border-color:var(--gold);}
+.asma-count{text-align:center;color:var(--text-dim);font-size:.88em;margin-bottom:16px;}
+</style>
 </head>
 <body data-lang="ar">
 <canvas id="bg3d"></canvas>
 <div class="pattern"></div>
 <header class="topbar">
   <a class="brand" href="index.html">
-    <img class="logo-img" src="assets/logo.png" alt="Al-Huda logo">
-    <div>
-      <h1 data-i18n="brand">الهُدى</h1>
-      <small data-i18n="brand_sub">EL HUDA</small>
-    </div>
+    <img class="logo-img" src="assets/logo.png" alt="Al-Huda">
+    <div><h1 data-i18n="brand">الهُدى</h1><small data-i18n="brand_sub">EL HUDA</small></div>
   </a>
   <nav class="links" id="navLinks">
-    <a href="index.html" data-i18n="nav_home" class="">الرئيسية</a>
-    <a href="quran.html" data-i18n="nav_quran" class="">القرآن</a>
-    <a href="prayer.html" data-i18n="nav_prayer" class="">الصلاة</a>
-    <a href="hadiths.html" data-i18n="nav_hadiths" class="">أحاديث</a>
-    <a href="duas-dhikr.html" data-i18n="nav_duas" class="">أدعية وأذكار</a>
-    <a href="stories.html" data-i18n="nav_stories" class="">قصص الأنبياء</a>
-    <a href="articles.html" data-i18n="nav_articles" class="">مقالات</a>
-    <a href="about.html" data-i18n="nav_about" class="">من نحن</a>
+    <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+    <a href="quran.html" data-i18n="nav_quran">القرآن</a>
+    <a href="prayer.html" data-i18n="nav_prayer">الصلاة</a>
     <a href="tools.html" data-i18n="nav_tools" class="current">أدوات</a>
+    <a href="about.html" data-i18n="nav_about">من نحن</a>
   </nav>
-  <div style="display:flex; align-items:center; gap:14px;">
-    <div class="lang-switch">
-      <select id="langSelect" aria-label="Language">
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="en">🇬🇧 English</option>
-      </select>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="lang-switch"><select id="langSelect"><option value="ar">AR</option><option value="fr">FR</option><option value="en">EN</option></select></div>
+    <div class="theme-wrap">
+      <button class="theme-toggle" id="themeToggle">🎨</button>
+      <div class="theme-panel" id="themePanel">
+        <button class="theme-option active" data-theme="dark"><span class="theme-swatch swatch-dark"></span>Dark</button>
+        <button class="theme-option" data-theme="dark-warm"><span class="theme-swatch swatch-dark-warm"></span>Warm</button>
+        <button class="theme-option" data-theme="black"><span class="theme-swatch swatch-black"></span>Black</button>
+        <button class="theme-option" data-theme="light"><span class="theme-swatch swatch-light"></span>Light</button>
+      </div>
     </div>
-    <button class="theme-toggle" id="themeToggle" title="Theme">🎨</button>
-    <div class="theme-panel" id="themePanel">
-      <button class="theme-option active" data-theme="dark" id="th-dark"><span class="theme-swatch swatch-dark"></span>Dark</button>
-      <button class="theme-option" data-theme="dark-warm" id="th-darkwarm"><span class="theme-swatch swatch-dark-warm"></span>Dark Warm</button>
-      <button class="theme-option" data-theme="black" id="th-black"><span class="theme-swatch swatch-black"></span>Pure Black</button>
-      <button class="theme-option" data-theme="light" id="th-light"><span class="theme-swatch swatch-light"></span>Light</button>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
+    <button class="menu-toggle" id="menuToggle">☰</button>
   </div>
 </header>
-<section class="page-hero">
-  <img class="hero-illustration" src="assets/mosque.svg" alt="" aria-hidden="true">
-  <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
+<section class="page-hero" style="min-height:28vh;">
   <img class="page-illustration" src="assets/asma-art.svg" alt="" aria-hidden="true">
-  <h2 data-i18n="asma_title">أسماء الله الحسنى</h2>
-  <p class="lead" data-i18n="asma_lead">الأسماء التسعة والتسعون لله سبحانه وتعالى، ومن دعاه بها استجاب له.</p>
+  <h2 id="asmaTitle">أسماء الله الحسنى</h2>
+  <p class="lead" id="asmaSub">الأسماء التسعة والتسعون لله سبحانه وتعالى</p>
 </section>
-<section class="reveal">
-  <div class="grid" id="asma-list"></div>
+<section style="position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 4vw;">
+  <div class="asma-search">
+    <input type="text" id="asmaSearch" placeholder="ابحث عن اسم...">
+  </div>
+  <p class="asma-count" id="asmaCount">99 اسمًا</p>
+  <div class="asma-grid" id="asmaGrid"></div>
 </section>
 <footer>
-  <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
-  <div class="daily-quote" id="daily-quote"></div>
   <div class="social-bar">
     <a class="social-btn discord" href="https://discord.com" target="_blank" rel="noopener">💬 Discord</a>
     <a class="social-btn instagram" href="https://instagram.com" target="_blank" rel="noopener">📸 Instagram</a>
     <a class="social-btn tiktok" href="https://tiktok.com" target="_blank" rel="noopener">🎵 TikTok</a>
   </div>
   <div class="brand-line">الهُدى · El Huda</div>
-  <p data-i18n="footer_quote">«وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ»</p>
-  <p style="margin-top:10px;" data-i18n="footer_rights">© 2026 الهُدى. جميع الحقوق محفوظة.</p>
+  <p>© 2026 El Huda.</p>
 </footer>
 <script src="lang.js"></script>
 <script src="content.js"></script>
-<script src="render.js"></script>
+<script>
+(function(){
+var LABELS={ar:{title:"أسماء الله الحسنى",sub:"الأسماء التسعة والتسعون لله سبحانه وتعالى",ph:"ابحث عن اسم...",cnt:"اسمًا"},en:{title:"The 99 Names of Allah",sub:"The most beautiful names of Allah",ph:"Search a name...",cnt:"names"},fr:{title:"Les 99 Noms d\'Allah",sub:"Les plus beaux noms d\'Allah le Tout-Puissant",ph:"Rechercher...",cnt:"noms"}};
+
+function getLang(){return document.body.getAttribute("data-lang")||"ar";}
+
+function buildGrid(q){
+  var lang=getLang(), grid=document.getElementById("asmaGrid"), cnt=document.getElementById("asmaCount");
+  if(!grid){return;}
+  if(typeof asmaList==="undefined"||!asmaList||!asmaList.length){setTimeout(function(){buildGrid(q);},120);return;}
+  var mkey=lang==="ar"?"ar_meaning":lang;
+  var filter=(q||"").toLowerCase();
+  var list=filter?asmaList.filter(function(x){return x.ar.includes(filter)||x.tr.toLowerCase().includes(filter)||(x[mkey]||"").toLowerCase().includes(filter)||x.en.toLowerCase().includes(filter);}):asmaList;
+  grid.innerHTML=list.map(function(item,i){
+    var num=asmaList.indexOf(item)+1;
+    return "<div class=\"asma-item\" style=\"transition-delay:"+Math.min(i*0.025,0.5)+"s\"><div class=\"asma-n\">"+num+"</div><div class=\"asma-ar\">"+item.ar+"</div><div class=\"asma-tr\">"+item.tr+"</div><div class=\"asma-mean\">"+(item[mkey]||item.en)+"</div></div>";
+  }).join("");
+  if(cnt)cnt.textContent=list.length+" "+(LABELS[lang]||LABELS.ar).cnt;
+  var items=grid.querySelectorAll(".asma-item");
+  if("IntersectionObserver" in window){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");obs.unobserve(e.target);}});},{threshold:0.05,rootMargin:"0px 0px -10px 0px"});
+    items.forEach(function(el){obs.observe(el);});
+  }else{items.forEach(function(el){el.classList.add("vis");});}
+  // touch press
+  items.forEach(function(el){
+    el.addEventListener("touchstart",function(){el.style.transform="scale(.96)";},{passive:true});
+    el.addEventListener("touchend",function(){el.style.transform="";});
+  });
+}
+
+function updateLabels(){
+  var lang=getLang(), L=LABELS[lang]||LABELS.ar;
+  var t=document.getElementById("asmaTitle"),s=document.getElementById("asmaSub"),inp=document.getElementById("asmaSearch");
+  if(t)t.textContent=L.title;if(s)s.textContent=L.sub;if(inp)inp.placeholder=L.ph;
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  var inp=document.getElementById("asmaSearch");
+  if(inp)inp.addEventListener("input",function(){buildGrid(inp.value);});
+  buildGrid();updateLabels();
+});
+document.addEventListener("langchange",function(){
+  buildGrid(document.getElementById("asmaSearch")&&document.getElementById("asmaSearch").value||"");
+  updateLabels();
+});
+})();
+</script>
 <script src="effects.js" defer></script>
 </body>
 </html>

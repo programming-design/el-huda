@@ -34,11 +34,12 @@
   <div style="display:flex; align-items:center; gap:14px;">
     <div class="lang-switch">
       <select id="langSelect" aria-label="Language">
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="en">🇬🇧 English</option>
+        <option value="ar">AR</option>
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
       </select>
     </div>
+    <div class="theme-wrap">
     <button class="theme-toggle" id="themeToggle" title="Theme">🎨</button>
     <div class="theme-panel" id="themePanel">
       <button class="theme-option active" data-theme="dark" id="th-dark"><span class="theme-swatch swatch-dark"></span>Dark</button>
@@ -49,65 +50,170 @@
     <button class="menu-toggle" id="menuToggle" aria-label="menu">☰</button>
   </div>
 </header>
+
+<!-- HERO -->
 <section class="hero" id="home">
   <img class="hero-illustration" src="assets/mosque.svg" alt="" aria-hidden="true">
   <div class="eyebrow" data-i18n="hero_eyebrow">منصة إسلامية رقمية · 2026</div>
-  <h2 data-i18n="hero_title">نور <span>القرآن</span> ودليلك إلى الهدى</h2>
+  <h2>نور <span data-i18n="nav_quran">القرآن</span> ودليلك إلى الهدى</h2>
   <p class="lead" data-i18n="hero_lead">اكتشف القرآن الكريم، مواقيت الصلاة، ومقالات إسلامية موثوقة — في تجربة عصرية، هادئة، وبثلاث لغات.</p>
   <div class="cta-row">
     <a href="quran.html" class="btn primary" data-i18n="cta_primary">ابدأ القراءة</a>
     <a href="prayer.html" class="btn ghost" data-i18n="cta_ghost">مواقيت الصلاة</a>
+    <a href="tools.html" class="btn ghost">🛠 الأدوات</a>
+  </div>
+</section>
+
+<!-- QUICK ACCESS -->
+<section style="position:relative;z-index:1;padding:30px 6vw 60px;max-width:1000px;margin:0 auto;">
+  <div class="quick-access reveal">
+    <a class="qa-btn" href="quran-read.html">📖 <span data-i18n="quran_hub_read_h">المصحف</span></a>
+    <a class="qa-btn" href="quran-listen.html">🎧 <span data-i18n="quran_hub_listen_h">الاستماع</span></a>
+    <a class="qa-btn" href="quran-tafsir.html">📝 <span data-i18n="quran_hub_tafsir_h">التفسير</span></a>
+    <a class="qa-btn" href="hadiths.html" data-i18n="nav_hadiths">أحاديث</a>
+    <a class="qa-btn" href="duas-dhikr.html" data-i18n="nav_duas">أدعية وأذكار</a>
+    <a class="qa-btn" href="asmaullah.html" data-i18n="tool_asma_h">أسماء الله</a>
+    <a class="qa-btn" href="qibla.html" data-i18n="tool_qibla_h">القبلة</a>
+    <a class="qa-btn" href="search.html" data-i18n="tool_search_h">البحث</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="reveal">
-  <div class="grid">
-    <a class="card reveal-scale in" href="quran.html" style="text-decoration:none; display:block;">
-      <div class="icon">📖</div>
-      <h4 data-i18n="home_q_h">القرآن الكريم</h4>
-      <p data-i18n="home_q_p">تصفح، استمع، وتدبّر في تصميم هادئ ومريح.</p>
-    </a>
-    <a class="card reveal-scale in" href="prayer.html" style="text-decoration:none; display:block;">
-      <div class="icon">🕒</div>
-      <h4 data-i18n="home_p_h">مواقيت الصلاة</h4>
-      <p data-i18n="home_p_p">تابع أوقات الصلوات الخمس بسهولة.</p>
-    </a>
-    <a class="card reveal-scale in" href="articles.html" style="text-decoration:none; display:block;">
-      <div class="icon">📚</div>
-      <h4 data-i18n="home_a_h">مقالات</h4>
-      <p data-i18n="home_a_p">محتوى مختصر لتغذية القلب والعقل يوميًا.</p>
-    </a>
-    <a class="card reveal-scale in" href="hadiths.html" style="text-decoration:none; display:block;">
-      <div class="icon">📿</div>
-      <h4 data-i18n="home_hadiths_h">أحاديث</h4>
-      <p data-i18n="home_hadiths_p">أحاديث نبوية مختارة للتدبر والعمل.</p>
-    </a>
-    <a class="card reveal-scale in" href="duas-dhikr.html" style="text-decoration:none; display:block;">
-      <div class="icon">🤲</div>
-      <h4 data-i18n="home_duas_h">أدعية وأذكار</h4>
-      <p data-i18n="home_duas_p">أذكار وأدعية يومية من السنة.</p>
-    </a>
-    <a class="card reveal-scale in" href="stories.html" style="text-decoration:none; display:block;">
-      <div class="icon">🕊️</div>
-      <h4 data-i18n="home_stories_h">قصص الأنبياء</h4>
-      <p data-i18n="home_stories_p">عبر ودروس من قصص الأنبياء.</p>
-    </a>
-    <a class="card reveal-scale in" href="about.html" style="text-decoration:none; display:block;">
-      <div class="icon">🕊️</div>
-      <h4 data-i18n="home_about_h">من نحن</h4>
-      <p data-i18n="home_about_p">تعرّف على رسالة الهُدى وأهدافها.</p>
-    </a>
-  </div>
-</section>
-
-<div class="divider"></div>
-
+<!-- AYAH OF THE DAY -->
 <div class="ayah-block reveal">
   <p class="quote" data-i18n="ayah_quote">«وَقُل رَّبِّ زِدْنِي عِلْمًا»</p>
   <p class="ref" data-i18n="ayah_ref">سورة طه - الآية 114</p>
 </div>
+
+<div class="divider"></div>
+
+<!-- STATS -->
+<section style="position:relative;z-index:1;padding:60px 6vw;">
+  <div class="lp-stats reveal">
+    <div class="lp-stat anim-card">
+      <div class="lp-stat-num">114</div>
+      <div class="lp-stat-label" data-i18n="nav_quran">سورة</div>
+    </div>
+    <div class="lp-stat anim-card">
+      <div class="lp-stat-num">6236</div>
+      <div class="lp-stat-label">آية</div>
+    </div>
+    <div class="lp-stat anim-card">
+      <div class="lp-stat-num">99</div>
+      <div class="lp-stat-label" data-i18n="tool_asma_h">اسمًا لله</div>
+    </div>
+    <div class="lp-stat anim-card">
+      <div class="lp-stat-num">25</div>
+      <div class="lp-stat-label" data-i18n="stories_title">نبيًا</div>
+    </div>
+    <div class="lp-stat anim-card">
+      <div class="lp-stat-num">3</div>
+      <div class="lp-stat-label">لغات</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="lp-section">
+  <div class="lp-section-head reveal">
+    <h2 data-i18n="tools_title">ماذا يقدم الهُدى؟</h2>
+    <p>كل ما تحتاجه في رحلتك الإيمانية في مكان واحد.</p>
+  </div>
+  <div class="lp-features">
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">📖</div>
+      <div>
+        <h3 data-i18n="quran_hub_read_h">المصحف الرقمي</h3>
+        <p>اقرأ القرآن بخط عثماني، استمع للتلاوات، وشاهد تلوين التجويد — مع تفسير ميسّر وقراء متعددين.</p>
+      </div>
+    </div>
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">🕒</div>
+      <div>
+        <h3 data-i18n="prayer_title">مواقيت الصلاة</h3>
+        <p>توقيت دقيق للصلوات الخمس بناءً على موقعك الجغرافي، مع تمييز الصلاة القادمة تلقائيًا.</p>
+      </div>
+    </div>
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">✨</div>
+      <div>
+        <h3 data-i18n="tool_asma_h">أسماء الله الحسنى</h3>
+        <p>استعرض الأسماء التسعة والتسعين مع معانيها بثلاث لغات وتصميم جميل وبحث فوري.</p>
+      </div>
+    </div>
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">🕊️</div>
+      <div>
+        <h3 data-i18n="stories_title">قصص الأنبياء</h3>
+        <p>قصص كاملة لـ25 نبيًا من القرآن الكريم، مع درس مستفاد من كل قصة.</p>
+      </div>
+    </div>
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">🧭</div>
+      <div>
+        <h3 data-i18n="tool_qibla_h">اتجاه القبلة</h3>
+        <p>تحديد اتجاه القبلة لحظيًا باستخدام GPS وحساب جغرافي دقيق.</p>
+      </div>
+    </div>
+    <div class="lp-feature anim-card">
+      <div class="feat-icon">🔍</div>
+      <div>
+        <h3 data-i18n="tool_search_h">البحث في القرآن</h3>
+        <p>ابحث عن أي كلمة في القرآن فورًا، بالعربية والإنجليزية والفرنسية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="lp-cta-band">
+  <h2 data-i18n="contact_lead">انضم إلى مجتمع AL-HUDA</h2>
+  <p>تعلّم، تدبّر، وتواصل مع مسلمين من حول العالم.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <a href="contact.html" class="btn primary" data-i18n="contact_join_btn">الانضمام إلى السيرفر</a>
+    <a href="tools.html" class="btn ghost">🛠 استكشف الأدوات</a>
+  </div>
+</div>
+
+<!-- SECTIONS GRID -->
+<section class="lp-section">
+  <div class="lp-section-head reveal">
+    <h2>استكشف المحتوى</h2>
+  </div>
+  <div class="grid">
+    <a class="card anim-card" href="quran.html" style="text-decoration:none;display:block;">
+      <div class="icon">📖</div>
+      <h4 data-i18n="nav_quran">القرآن الكريم</h4>
+      <p>تصفح، استمع، وتدبّر في تصميم هادئ ومريح.</p>
+    </a>
+    <a class="card anim-card" href="prayer.html" style="text-decoration:none;display:block;">
+      <div class="icon">🕒</div>
+      <h4 data-i18n="nav_prayer">مواقيت الصلاة</h4>
+      <p>تابع أوقات الصلوات الخمس بسهولة.</p>
+    </a>
+    <a class="card anim-card" href="hadiths.html" style="text-decoration:none;display:block;">
+      <div class="icon">📿</div>
+      <h4 data-i18n="nav_hadiths">أحاديث نبوية</h4>
+      <p>أحاديث صحيحة مختارة للتدبر والعمل.</p>
+    </a>
+    <a class="card anim-card" href="duas-dhikr.html" style="text-decoration:none;display:block;">
+      <div class="icon">🤲</div>
+      <h4 data-i18n="nav_duas">أدعية وأذكار</h4>
+      <p>أذكار وأدعية يومية من السنة النبوية.</p>
+    </a>
+    <a class="card anim-card" href="stories.html" style="text-decoration:none;display:block;">
+      <div class="icon">🕊️</div>
+      <h4 data-i18n="nav_stories">قصص الأنبياء</h4>
+      <p>قصص كاملة لـ25 نبيًا بثلاث لغات.</p>
+    </a>
+    <a class="card anim-card" href="tools.html" style="text-decoration:none;display:block;">
+      <div class="icon">🛠</div>
+      <h4 data-i18n="nav_tools">الأدوات</h4>
+      <p>قبلة، حاسبة زكاة، تقويم هجري، بحث قرآني والمزيد.</p>
+    </a>
+  </div>
+</section>
 <footer>
   <div class="daily-label" data-i18n="daily_label">خاطرة اليوم</div>
   <div class="daily-quote" id="daily-quote"></div>
